@@ -56,7 +56,7 @@
     </tr>
     <tr class="top-aligned-row">
       <td><strong>Last Update:</strong></td>
-      <td>Sat Oct 28 12:58:58 -0700 2006</td>
+      <td>Tue May 05 23:36:26 +0200 2009</td>
     </tr>
     </table>
   </div>
@@ -69,7 +69,11 @@
   <div id="contextContent">
 
     <div id="description">
-      <h1><a href="../classes/RCDK.html">RCDK</a> - The Ruby Interface for the Chemistry Development Kit (CDK)</h1>
+      <h1><a href="../classes/RCDK.html">RCDK</a> - The Ruby Interface for the Chemistry Development Kit (CDK) - Next Generation</h1>
+<p>
+This is a reuptake of Rich&#8216;s <a
+href="../classes/RCDK.html">RCDK</a>,adapted for CDK 1.2.2
+</p>
 <p>
 <a href="../classes/RCDK.html">RCDK</a> makes it possible to use the
 Chemistry Development Kit (CDK) from Ruby. CDK is a Java library for
@@ -78,22 +82,13 @@ chemical informatics.
 <h2>Typical Usage</h2>
 <pre>
   require 'rubygems'
-  require_gem 'rcdk'
+  gem 'rcdk'
   require 'rcdk/util'
 
   mol = RCDK::Util::Lang.read_smiles 'c1ccccc1'
 
   puts mol.getAtomCount # =&gt;6
 </pre>
-<h2>Downloading</h2>
-<p>
-Both a RubyGems installation package and a full source package can be
-obtained from:
-</p>
-<p>
-<a
-href="http://rubyforge.org/projects/rcdk">rubyforge.org/projects/rcdk</a>
-</p>
 <h2>Requirements</h2>
 <p>
 <a href="../classes/RCDK.html">RCDK</a> was developed with Ruby 1.8.4.
@@ -106,7 +101,7 @@ The RubyGems package can be installed using the following command (as
 root):
 </p>
 <p>
-gem install rcdk
+gem install rcdk-ng
 </p>
 <p>
 This command will optionally install Ruby Java Bridge, if it hasn&#8216;t
@@ -123,17 +118,7 @@ following sources:
 href="http://cdk.sf.net">cdk.sf.net</a>
 </p>
 <p>
--OPSIN, licensed under the Artistic License: <a
-href="http://sourceforge.net/projects/oscar3-chem">sourceforge.net/projects/oscar3-chem</a>/
-</p>
-<p>
--Structure-CDK, licensed under the LGPL: <a
-href="http://sf.net/projects/structure">sf.net/projects/structure</a>
-</p>
-<h2>Contact</h2>
-<p>
-Blog: <a href="http://depth-first.com">depth-first.com</a> Email: r_apodaca
-at users dot sf dot net
+-Structure-CDK-ng, licensed under the LGPL
 </p>
 
     </div>
