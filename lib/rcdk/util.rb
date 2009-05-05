@@ -33,10 +33,7 @@ jrequire 'org.openscience.cdk.smiles.SmilesGenerator'
 jrequire 'org.openscience.cdk.DefaultChemObjectBuilder'
 jrequire 'org.openscience.cdk.Molecule'
 jrequire 'org.openscience.cdk.layout.StructureDiagramGenerator'
-jrequire 'org.openscience.cdk.io.CMLReader'
-jrequire 'org.openscience.cdk.ChemFile'
 jrequire 'net.sf.structure.cdk.util.ImageKit'
-jrequire 'uk.ac.cam.ch.wwmm.opsin.NameToStructure'
 
 # The Ruby Chemistry Development Kit.
 module RCDK
@@ -50,13 +47,11 @@ module RCDK
       include Org::Openscience::Cdk
       include Org::Openscience::Cdk::Io
       include Java::Io
-      include Uk::Ac::Cam::Ch::Wwmm::Opsin
       
       @@mdl_reader = Io::MDLReader.new
       @@mdl_writer = Io::MDLWriter.new
-      @@smiles_parser = Smiles::SmilesParser.new
-      @@smiles_generator = Smiles::SmilesGenerator.new(DefaultChemObjectBuilder.getInstance)
-      @@cml_reader = nil
+      @@smiles_parser = Smiles::SmilesParser.new(DefaultChemObjectBuilder.getInstance)
+      @@smiles_generator = Smiles::SmilesGenerator.new
       
       # Returns a CDK <tt>Molecule</tt> given the String-based molfile
       # <tt>molfile</tt>.
@@ -65,22 +60,6 @@ module RCDK
         
         @@mdl_reader.setReader(reader)
         @@mdl_reader.read(Molecule.new)
-      end
-      
-      # Returns a CDK <tt>Molecule</tt> given the specified <tt>iupac_name</tt>.
-      def self.read_iupac(iupac_name)
-        nts = NameToStructure.getInstance
-        cml = nts.parseToCML(iupac_name)
-        
-        raise "Couldn't parse #{iupac_name}." unless cml
-        
-        string_reader = StringReader.new(cml.toXML)
-        
-        @@cml_reader = CMLReader.new unless @@cml_reader
-        @@cml_reader.setReader(string_reader)
-        
-        chem_file = @@cml_reader.read(ChemFile.new)
-        chem_file.getChemSequence(0).getChemModel(0).getSetOfMolecules.getMolecule(0)
       end
       
       # Returns a String-based molfile by parsing the CDK <tt>molecule</tt>.
@@ -186,32 +165,7 @@ module RCDK
         ImageKit.writeJPG(mol, width, height, path_to_jpg)
       end
       
-      # Writes a <tt>width</tt> by <tt>height</tt> PNG image to
-      # <tt>path_to_png</tt> using <tt>iupac_name</tt>. Coordinates
-      # are automatically assigned.
-      def self.iupac_to_png(iupac_name, path_to_png, width, height)
-        mol = XY.coordinate_molecule(Lang.read_iupac(iupac_name))
-        
-        ImageKit.writePNG(mol, width, height, path_to_png)
-      end
-      
-      # Writes a <tt>width</tt> by <tt>height</tt> SVG document to
-      # <tt>path_to_svg</tt> using <tt>iupac_name</tt>. Coordinates
-      # are automatically assigned.
-      def self.iupac_to_svg(iupac_name, path_to_svg, width, height)
-        mol = XY.coordinate_molecule(Lang.read_iupac(iupac_name))
-        
-        ImageKit.writeSVG(mol, width, height, path_to_svg)
-      end
-      
-      # Writes a <tt>width</tt> by <tt>height</tt> JPG image to
-      # <tt>path_to_jpg</tt> using <tt>iupac_name</tt>. Coordinates
-      # are automatically assigned.
-      def self.iupac_to_jpg(iupac_name, path_to_jpg, width, height)
-        mol = XY.coordinate_molecule(Lang.read_iupac(iupac_name))
-        
-        ImageKit.writeJPG(mol, width, height, path_to_jpg)
-      end
     end
   end
 end
+

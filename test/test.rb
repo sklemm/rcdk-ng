@@ -37,7 +37,7 @@ class BasicTest < Test::Unit::TestCase
   
   def setup
     @benzene =
-"c1ccccc1
+"C=1C=CC=CC=1
 JME 2004.10 Thu Jun 01 18:20:16 EDT 2006
 
   6  6  0  0  0  0  0  0  0  0999 V2000
@@ -70,13 +70,7 @@ M  END"
   end
   
   def test_read_smiles
-    molecule = Lang.read_smiles('c1ccccc1')
-    
-    assert_equal(6, molecule.getAtomCount)
-  end
-  
-  def test_read_iupac
-    molecule = Lang.read_iupac('benzene')
+    molecule = Lang.read_smiles('C=1C=CC=CC=1')
     
     assert_equal(6, molecule.getAtomCount)
   end
@@ -90,11 +84,11 @@ M  END"
   def test_molfile_to_smiles
     smiles = Lang.molfile_to_smiles(@benzene)
     
-    assert_equal('c1ccccc1', smiles)
+    assert_equal('C=1C=CC=CC=1', smiles)
   end
   
   def test_smiles_to_molfile
-    molfile = Lang.smiles_to_molfile('c1ccccc1')
+    molfile = Lang.smiles_to_molfile('C=1C=CC=CC=1')
     
     assert_not_equal(0, molfile.length)
   end
@@ -131,17 +125,6 @@ M  END"
   def test_smiles_to_jpg
     Image.smiles_to_jpg('Clc1ccccc1', 'output/chlorobenzene.jpg', 200, 200)
   end
-  
-  def test_iupac_to_png
-    Image.iupac_to_png('quinoline', 'output/quinoline.png', 200, 200)
-  end
-  
-  def test_iupac_to_svg
-    Image.iupac_to_svg('quinoline', 'output/quinoline.svg', 200, 200)
-  end
-  
-  def test_iupac_to_jpg
-    Image.iupac_to_jpg('quinoline', 'output/quinoline.jpg', 200, 200)
-  end
+
 end
 
