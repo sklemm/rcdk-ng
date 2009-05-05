@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Sat Oct 28 12:58:58 -0700 2006</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1><a href="../classes/RCDK.html">RCDK</a> - The Ruby Interface for the Chemistry Development Kit (CDK)</h1>
+<p>
+<a href="../classes/RCDK.html">RCDK</a> makes it possible to use the
+Chemistry Development Kit (CDK) from Ruby. CDK is a Java library for
+chemical informatics.
+</p>
+<h2>Typical Usage</h2>
+<pre>
+  require 'rubygems'
+  require_gem 'rcdk'
+  require 'rcdk/util'
+
+  mol = RCDK::Util::Lang.read_smiles 'c1ccccc1'
+
+  puts mol.getAtomCount # =&gt;6
+</pre>
+<h2>Downloading</h2>
+<p>
+Both a RubyGems installation package and a full source package can be
+obtained from:
+</p>
+<p>
+<a
+href="http://rubyforge.org/projects/rcdk">rubyforge.org/projects/rcdk</a>
+</p>
+<h2>Requirements</h2>
+<p>
+<a href="../classes/RCDK.html">RCDK</a> was developed with Ruby 1.8.4.
+Earlier versions of Ruby may also be compatible. Ruby Java Bridge is used
+to interface to the Java Virtual Machine.
+</p>
+<h2>Installing</h2>
+<p>
+The RubyGems package can be installed using the following command (as
+root):
+</p>
+<p>
+gem install rcdk
+</p>
+<p>
+This command will optionally install Ruby Java Bridge, if it hasn&#8216;t
+been installed yet.
+</p>
+<h2>License</h2>
+<p>
+<a href="../classes/RCDK.html">RCDK</a> is distributed under the GNU LGPL
+version 2.1 (see &#8216;LICENSE&#8217;). It contains bytecode from the
+following sources:
+</p>
+<p>
+-Chemistry Development Kit (CDK), licensed under the LGPL: <a
+href="http://cdk.sf.net">cdk.sf.net</a>
+</p>
+<p>
+-OPSIN, licensed under the Artistic License: <a
+href="http://sourceforge.net/projects/oscar3-chem">sourceforge.net/projects/oscar3-chem</a>/
+</p>
+<p>
+-Structure-CDK, licensed under the LGPL: <a
+href="http://sf.net/projects/structure">sf.net/projects/structure</a>
+</p>
+<h2>Contact</h2>
+<p>
+Blog: <a href="http://depth-first.com">depth-first.com</a> Email: r_apodaca
+at users dot sf dot net
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
