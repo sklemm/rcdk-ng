@@ -1,4 +1,6 @@
-=RCDK - The Ruby Interface for the Chemistry Development Kit (CDK)
+=RCDK - The Ruby Interface for the Chemistry Development Kit (CDK) - Next Generation
+
+This is a reuptake of Rich's RCDK,adapted for CDK 1.2.2
 
 RCDK makes it possible to use the Chemistry Development Kit (CDK)
 from Ruby. CDK is a Java library for chemical informatics.
@@ -6,19 +8,13 @@ from Ruby. CDK is a Java library for chemical informatics.
 ==Typical Usage
 
   require 'rubygems'
-  require_gem 'rcdk'
+  gem 'rcdk'
   require 'rcdk/util'
   
   mol = RCDK::Util::Lang.read_smiles 'c1ccccc1'
   
   puts mol.getAtomCount # =>6
   
-==Downloading
-
-Both a RubyGems installation package and a full source package
-can be obtained from:
-
-http://rubyforge.org/projects/rcdk
 
 ==Requirements
 
@@ -31,7 +27,7 @@ to the Java Virtual Machine.
 The RubyGems package can be installed using the following command
 (as root):
 
-gem install rcdk
+gem install rcdk-ng
 
 This command will optionally install Ruby Java Bridge, if it
 hasn't been installed yet.
@@ -42,11 +38,5 @@ It contains bytecode from the following sources:
 
 -Chemistry Development Kit (CDK), licensed under the LGPL: http://cdk.sf.net
 
--OPSIN, licensed under the Artistic License: http://sourceforge.net/projects/oscar3-chem/
+-Structure-CDK-ng, licensed under the LGPL
 
--Structure-CDK, licensed under the LGPL: http://sf.net/projects/structure
-
-==Contact
-
-Blog: http://depth-first.com
-Email: r_apodaca at users dot sf dot net
