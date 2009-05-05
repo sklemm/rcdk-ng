@@ -22,13 +22,13 @@
 # Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor
 # Boston, MA 02111-1301, USA.
 
-RCDK_VERSION = '0.3.0'
-CDK_VERSION = '20060714'
-STRUCTURE_CDK_VERSION = '0.1.2'
-OPSIN_VERSION = '0.1.0'
+RCDK_VERSION = '0.4.2'
+CDK_VERSION = '20090505'
+STRUCTURE_CDK_VERSION = '0.2.2'
+BATIK_VERSION = '1.7'
 
 require 'rcdk/java'
 
 require_jar File.join(File.dirname(__FILE__), '..', 'java', 'lib', 'cdk-' + CDK_VERSION + '.jar')
 require_jar File.join(File.dirname(__FILE__), '..', 'java', 'lib', 'structure-cdk-' + STRUCTURE_CDK_VERSION + '.jar')
-require_jar File.join(File.dirname(__FILE__), '..', 'java', 'lib', 'opsin-big-' + OPSIN_VERSION + '.jar')
+require_jar File.join(File.dirname(__FILE__), '..', 'java', 'lib', 'batik-' + BATIK_VERSION + '.jar')
