@@ -78,13 +78,13 @@ M  END"
   def test_write_smiles
     smiles = Lang.get_smiles(MoleculeFactory.makeBenzene)
     
-    assert_equal('c1ccccc1', smiles)
+    assert_equal('C=1C=CC=CC=1', smiles)
   end
   
   def test_molfile_to_smiles
     smiles = Lang.molfile_to_smiles(@benzene)
     
-    assert_equal('C=1C=CC=CC=1', smiles)
+    assert_equal('C1=CC=CC=C1', smiles)
   end
   
   def test_smiles_to_molfile

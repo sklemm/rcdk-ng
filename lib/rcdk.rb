@@ -30,5 +30,5 @@ BATIK_VERSION = '1.7'
 require 'rcdk/java'
 
 require_jar File.join(File.dirname(__FILE__), '..', 'java', 'lib', 'cdk-' + CDK_VERSION + '.jar')
-require_jar File.join(File.dirname(__FILE__), '..', 'java', 'lib', 'structure-cdk-' + STRUCTURE_CDK_VERSION + '.jar')
+require_jar File.join(File.dirname(__FILE__), '..', 'java', 'lib', 'structure-cdk-ng-' + STRUCTURE_CDK_VERSION + '.jar')
 require_jar File.join(File.dirname(__FILE__), '..', 'java', 'lib', 'batik-' + BATIK_VERSION + '.jar')
