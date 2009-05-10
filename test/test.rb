@@ -116,14 +116,17 @@ M  END"
   
   def test_smiles_to_png
     Image.smiles_to_png('Clc1ccccc1', 'output/chlorobenzene.png', 200, 200)
+    Image.smiles_to_png('CC(=O)OC1=CC=CC=C1C(=O)O', 'output/aspirin.png', 200, 200)
   end
   
   def test_smiles_to_svg
     Image.smiles_to_svg('Clc1ccccc1', 'output/chlorobenzene.svg', 200, 200)
+    Image.smiles_to_png('CC(=O)OC1=CC=CC=C1C(=O)O', 'output/aspirin.svg', 100, 100)
   end
   
   def test_smiles_to_jpg
     Image.smiles_to_jpg('Clc1ccccc1', 'output/chlorobenzene.jpg', 200, 200)
+    Image.smiles_to_jpg('CC(=O)OC1=CC=CC=C1C(=O)O', 'output/aspirin.jpg', 200, 200)
   end
 
 end

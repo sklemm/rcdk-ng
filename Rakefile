@@ -27,7 +27,7 @@ require 'rake/testtask'
 require 'rake/rdoctask'
 require 'rake/gempackagetask'
 
-PKG_VERSION = "0.4.2"
+PKG_VERSION = "0.4.3"
 
 PKG_FILES = FileList[
   "Rakefile", "README",
@@ -95,16 +95,15 @@ Rake::RDocTask.new do |rdoc|
 end
 
 spec = Gem::Specification.new do |s|
-  s.name = 'rcdk-ng'
+  s.name = 'rcdk'
   s.version = PKG_VERSION
   s.author = "Sebastian Klemm"
   s.homepage = ""
   s.platform = Gem::Platform::RUBY
   s.require_path = 'lib'
-  s.autorequire = 'rcdk-ng'
   s.has_rdoc = true
   s.files = PKG_FILES
-  s.summary = "A Ruby wrapper for the Chemistry Development Kit - next generation"
+  s.summary = "A Ruby wrapper for the Chemistry Development Kit"
   s.add_dependency("rjb", ">= 1.0.0")
   s.description = s.summary
   s.extra_rdoc_files = ['README']
