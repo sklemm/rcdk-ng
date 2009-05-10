@@ -1,5 +1,5 @@
 spec = Gem::Specification.new do |s|
-  s.name = 'rcdk'
+  s.name = 'rcdk-ng'
   s.version = '0.4.3'
   s.author = "Sebastian Klemm"
   s.homepage = ""

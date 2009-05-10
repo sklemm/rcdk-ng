@@ -30,7 +30,7 @@ require 'rake/gempackagetask'
 PKG_VERSION = "0.4.3"
 
 PKG_FILES = FileList[
-  "Rakefile", "README",
+  "Rakefile", "README", "LICENSE"
   "lib/**/*.rb",
   "test/**/*",
   "java/lib/*.jar"
@@ -95,7 +95,7 @@ Rake::RDocTask.new do |rdoc|
 end
 
 spec = Gem::Specification.new do |s|
-  s.name = 'rcdk'
+  s.name = 'rcdk-ng'
   s.version = PKG_VERSION
   s.author = "Sebastian Klemm"
   s.homepage = ""
