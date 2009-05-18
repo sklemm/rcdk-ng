@@ -30,7 +30,7 @@ require 'rake/gempackagetask'
 PKG_VERSION = "0.4.3"
 
 PKG_FILES = FileList[
-  "Rakefile", "README", "LICENSE"
+  "Rakefile", "README", "LICENSE",
   "lib/**/*.rb",
   "test/**/*",
   "java/lib/*.jar"

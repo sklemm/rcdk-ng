@@ -29,6 +29,10 @@ BATIK_VERSION = '1.7'
 
 require 'rcdk/java'
 
-require_jar File.join(File.dirname(__FILE__), '..', 'java', 'lib', 'cdk-' + CDK_VERSION + '.jar')
-require_jar File.join(File.dirname(__FILE__), '..', 'java', 'lib', 'structure-cdk-ng-' + STRUCTURE_CDK_VERSION + '.jar')
-require_jar File.join(File.dirname(__FILE__), '..', 'java', 'lib', 'batik-' + BATIK_VERSION + '.jar')
+libpath = "../java/lib"
+
+classpath = File.join(File.dirname(__FILE__), libpath, 'cdk-' + CDK_VERSION + '.jar')
+classpath += File::PATH_SEPARATOR + File.join(File.dirname(__FILE__), libpath, 'structure-cdk-ng-' + STRUCTURE_CDK_VERSION + '.jar')
+classpath += File::PATH_SEPARATOR + File.join(File.dirname(__FILE__), libpath, 'batik-' + BATIK_VERSION + '.jar')
+
+load_jvm(classpath)
