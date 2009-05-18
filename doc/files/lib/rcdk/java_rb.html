@@ -56,7 +56,7 @@
     </tr>
     <tr class="top-aligned-row">
       <td><strong>Last Update:</strong></td>
-      <td>Tue May 05 23:11:39 +0200 2009</td>
+      <td>Mon May 18 16:18:16 +0200 2009</td>
     </tr>
     </table>
   </div>
@@ -118,7 +118,7 @@ USA.
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000001">require_jar</a>&nbsp;&nbsp;
+      <a href="#M000001">load_jvm</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -145,30 +145,23 @@ USA.
 
         <div class="method-heading">
           <a href="#M000001" class="method-signature">
-          <span class="method-name">require_jar</span><span class="method-args">(path_to_jarfile)</span>
+          <span class="method-name">load_jvm</span><span class="method-args">(classpath)</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-Adds the fully-qualified path <tt>path_to_jarfile</tt> to the <tt>
-CLASSPATH</tt> environment variable. Any jarfiles added after the first
-invocation of a Java constructor will be globally ignored, i.e., <tt>
-require</tt> all jarfiles first in your program before constructing objects
-from them.
+Loads the JVM with the given <tt>classpath</tt>. All needed .jars should be
+included in <tt>classpath</tt>.
 </p>
           <p><a class="source-toggle" href="#"
             onclick="toggleCode('M000001-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000001-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/rcdk/java.rb, line 34</span>
-34: <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">require_jar</span>(<span class="ruby-identifier">path_to_jarfile</span>)
-35:   <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">classpath_set?</span>
-36:     <span class="ruby-constant">ENV</span>[<span class="ruby-value str">'CLASSPATH'</span>] = <span class="ruby-constant">ENV</span>[<span class="ruby-value str">'CLASSPATH'</span>] <span class="ruby-operator">+</span> <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">PATH_SEPARATOR</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">path_to_jarfile</span>
-37:   <span class="ruby-keyword kw">else</span>
-38:     <span class="ruby-constant">ENV</span>[<span class="ruby-value str">'CLASSPATH'</span>] = <span class="ruby-identifier">path_to_jarfile</span>
-39:   <span class="ruby-keyword kw">end</span>
-40: <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File lib/rcdk/java.rb, line 31</span>
+31: <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">load_jvm</span>(<span class="ruby-identifier">classpath</span>)
+32:   <span class="ruby-constant">Rjb</span><span class="ruby-operator">::</span><span class="ruby-identifier">load</span>(<span class="ruby-identifier">classpath</span>, [<span class="ruby-value str">'-Xms32m'</span>, <span class="ruby-value str">'-Xmx1024m'</span>])
+33: <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>

@@ -26,31 +26,10 @@ require 'rubygems'
 gem 'rjb'
 require 'rjb'
 
-# Adds the fully-qualified path <tt>path_to_jarfile</tt> to the <tt>
-# CLASSPATH</tt> environment variable. Any jarfiles added after the
-# first invocation of a Java constructor will be globally ignored, i.e., <tt>
-# require</tt> all jarfiles first in your program before constructing
-# objects from them.
-def require_jar(path_to_jarfile)
-  if classpath_set?
-    ENV['CLASSPATH'] = ENV['CLASSPATH'] + File::PATH_SEPARATOR + path_to_jarfile
-  else
-    ENV['CLASSPATH'] = path_to_jarfile
-  end
-end
-
-private  
-
-# Returns false if the <tt>CLASSPATH</tt> variable is either null or
-# empty, or otherwise true.
-def classpath_set?
-  if !ENV['CLASSPATH']
-    return false
-  elsif ''.eql?(ENV['CLASSPATH'])
-    return false
-  end
-  
-  true
+# Loads the JVM with the given <tt>classpath</tt>.
+# All needed .jars should be included in <tt>classpath</tt>.
+def load_jvm(classpath)
+  Rjb::load(classpath, ['-Xms32m', '-Xmx1024m'])
 end
 
 module Kernel
