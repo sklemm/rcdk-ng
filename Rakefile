@@ -27,7 +27,7 @@ require 'rake/testtask'
 require 'rake/rdoctask'
 require 'rake/gempackagetask'
 
-PKG_VERSION = "0.4.3"
+PKG_VERSION = "0.4.4"
 
 PKG_FILES = FileList[
   "Rakefile", "README", "LICENSE",

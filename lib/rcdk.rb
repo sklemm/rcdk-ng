@@ -22,7 +22,7 @@
 # Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor
 # Boston, MA 02111-1301, USA.
 
-RCDK_VERSION = '0.4.2'
+RCDK_VERSION = '0.4.4'
 CDK_VERSION = '20090505'
 STRUCTURE_CDK_VERSION = '0.2.3'
 BATIK_VERSION = '1.7'
