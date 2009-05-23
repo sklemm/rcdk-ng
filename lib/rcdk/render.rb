@@ -58,25 +58,20 @@ module RCDK
       include Org::Openscience::Cdk::Renderer
 
       def self.write_png( molecule, filename, width, height )
-        img = draw molecule, width, height
+        img = render_img molecule, width, height
         file = Java::Io::File.new(filename)
-        Javax::Imageio::ImageIO.write(img, "PNG", file)  
+        Javax::Imageio::ImageIO.write(img, "PNG", file)
       end
 
       def self.write_jpg( molecule, filename, width, height )
-        img = draw molecule, width, height
+        img = render_img molecule, width, height
         file = Java::Io::File.new(filename)
         Javax::Imageio::ImageIO.write(img, "JPG", file)
       end
 
       private
 
-      def self.draw( molecule, width, height )
-        # prepare molecule
-        sdg = Layout::StructureDiagramGenerator.new
-        sdg.setMolecule molecule
-        sdg.generateCoordinates
-        mol = sdg.getMolecule
+      def self.render_img( molecule, width, height )
         # prepare image
         area = Java::Awt::Rectangle.new width, height
         img = Java::Awt::Image::BufferedImage.new width, height,
@@ -84,21 +79,32 @@ module RCDK
         g2d = img.createGraphics
         g2d.setColor Java::Awt::Color.WHITE
         g2d.fillRect 0, 0, width, height
+        visitor = Visitor::AWTDrawVisitor.new(g2d)
+
+        render( molecule, visitor, area )
+        # return the image
+        img
+      end
+
+      def self.render_svg( molecule, width, height )
+
+      end
+
+      def self.render(molecule, visitor, area)
+        # prepare molecule
+        sdg = Layout::StructureDiagramGenerator.new
+        sdg.setMolecule molecule
+        sdg.generateCoordinates
+        mol = sdg.getMolecule
         # prepare renderer
         generators = Java::Util::ArrayList.new
         generators.add(Generators::BasicBondGenerator.new)
         generators.add(Generators::BasicAtomGenerator.new)
         font = Font::AWTFontManager.new
         renderer = Renderer.new(generators, font)
-        visitor = Visitor::AWTDrawVisitor.new(g2d)
-        #model = RendererModel.new
-        #model.setAtomColorer(Color::CPKAtomColors.new)
-        #model.setForeColor(Java::Awt::Color.GREEN)
-        #visitor.setRendererModel(model)
-        # paint
+
         renderer.paintMolecule( mol, visitor, area, true )
-        # return the image
-        img
+
       end
 
     end
