@@ -96,10 +96,10 @@ module RCDK
       def self.render_svg( molecule, width, height )
         area = Java::Awt::Rectangle.new width, height
         visitor = Visitor::SVGGenerator.new
+
         render( molecule, visitor, area )
-        svg = visitor.getResult
-        puts svg
-        svg
+        # return svg string
+        visitor.getResult
       end
 
       def self.render(molecule, visitor, area)
@@ -114,6 +114,9 @@ module RCDK
         generators.add(Generators::BasicAtomGenerator.new)
         font = Font::AWTFontManager.new
         renderer = Renderer.new(generators, font)
+        model = renderer.getRenderer2DModel
+        model.setAtomColorer Color::CPKAtomColors.new
+        model.setBondWidth 2
 
         renderer.paintMolecule( mol, visitor, area, true )
       end
