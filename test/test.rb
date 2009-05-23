@@ -121,7 +121,7 @@ M  END"
   
   def test_smiles_to_svg
     Image.smiles_to_svg('Clc1ccccc1', 'output/chlorobenzene.svg', 200, 200)
-    Image.smiles_to_png('CC(=O)OC1=CC=CC=C1C(=O)O', 'output/aspirin.svg', 100, 100)
+    Image.smiles_to_svg('CC(=O)OC1=CC=CC=C1C(=O)O', 'output/aspirin.svg', 200, 200)
   end
   
   def test_smiles_to_jpg

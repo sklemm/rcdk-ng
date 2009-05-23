@@ -23,6 +23,7 @@
 # Boston, MA 02111-1301, USA.
 
 require 'rcdk'
+require 'rcdk/render'
 
 jrequire 'java.io.StringReader'
 jrequire 'java.io.StringWriter'
@@ -35,7 +36,6 @@ jrequire 'org.openscience.cdk.smiles.SmilesGenerator'
 jrequire 'org.openscience.cdk.DefaultChemObjectBuilder'
 jrequire 'org.openscience.cdk.Molecule'
 jrequire 'org.openscience.cdk.layout.StructureDiagramGenerator'
-jrequire 'net.sf.structure.cdk.util.ImageKit'
 
 # The Ruby Chemistry Development Kit.
 module RCDK
@@ -134,24 +134,23 @@ module RCDK
     
     # Raster and SVG 2-D molecular images.
     class Image
-      include Net::Sf::Structure::Cdk::Util
       
       # Writes a <tt>width</tt> by <tt>height</tt> PNG image to
       # <tt>path_to_png</tt> using <tt>molfile</tt>.
       def self.molfile_to_png(molfile, path_to_png, width, height)
-        ImageKit.writePNG(Lang.read_molfile(molfile), width, height, path_to_png)
+        Render::Painter.write_png(Lang.read_molfile(molfile), path_to_png, width, height)
       end
       
       # Writes a <tt>width</tt> by <tt>height</tt> SVG document to
       # <tt>path_to_svg</tt> using <tt>molfile</tt>.
       def self.molfile_to_svg(molfile, path_to_svg, width, height)
-        ImageKit.writeSVG(Lang.read_molfile(molfile), width, height, path_to_svg)
+        Render::Painter.write_svg(Lang.read_molfile(molfile), path_to_svg, width, height)
       end
       
       # Writes a <tt>width</tt> by <tt>height</tt> JPG image to
       # <tt>path_to_jpg</tt> using <tt>molfile</tt>.
       def self.molfile_to_jpg(molfile, path_to_jpg, width, height)
-        ImageKit.writeJPG(Lang.read_molfile(molfile), width, height, path_to_jpg)
+        Render::Painter.write_jpg(Lang.read_molfile(molfile), path_to_jpg, width, height)
       end
       
       # Writes a <tt>width</tt> by <tt>height</tt> PNG image to
@@ -159,8 +158,7 @@ module RCDK
       # assigned.
       def self.smiles_to_png(smiles, path_to_png, width, height)
         mol = XY.coordinate_molecule(Lang.read_smiles(smiles))
-        
-        ImageKit.writePNG(mol, width, height, path_to_png)
+        Render::Painter.write_png(mol, path_to_png, width, height)
       end
       
       # Writes a <tt>width</tt> by <tt>height</tt> SVG document to
@@ -168,8 +166,7 @@ module RCDK
       # assigned.
       def self.smiles_to_svg(smiles, path_to_svg, width, height)
         mol = XY.coordinate_molecule(Lang.read_smiles(smiles))
-        
-        ImageKit.writeSVG(mol, width, height, path_to_svg)
+        Render::Painter.write_svg(mol, path_to_svg, width, height)
       end
       
       # Writes a <tt>width</tt> by <tt>height</tt> JPG image to
@@ -177,8 +174,7 @@ module RCDK
       # assigned.
       def self.smiles_to_jpg(smiles, path_to_jpg, width, height)
         mol = XY.coordinate_molecule(Lang.read_smiles(smiles))
-        
-        ImageKit.writeJPG(mol, width, height, path_to_jpg)
+        Render::Painter.write_jpg(mol, path_to_jpg, width, height)
       end
       
     end

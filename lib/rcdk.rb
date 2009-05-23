@@ -24,7 +24,6 @@
 
 RCDK_VERSION = '0.4.4'
 CDK_VERSION = '1.2.x-alpha'
-STRUCTURE_CDK_VERSION = '0.2.3'
 BATIK_VERSION = '1.7'
 
 require 'rcdk/java'
@@ -32,7 +31,6 @@ require 'rcdk/java'
 libpath = "../java/lib"
 
 classpath = File.join(File.dirname(__FILE__), libpath, 'cdk-' + CDK_VERSION + '.jar')
-classpath += File::PATH_SEPARATOR + File.join(File.dirname(__FILE__), libpath, 'structure-cdk-ng-' + STRUCTURE_CDK_VERSION + '.jar')
 classpath += File::PATH_SEPARATOR + File.join(File.dirname(__FILE__), libpath, 'batik-' + BATIK_VERSION + '.jar')
 
 load_jvm(classpath)
