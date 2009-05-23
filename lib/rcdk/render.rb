@@ -31,19 +31,18 @@ jrequire 'java.awt.Graphics2D'
 jrequire 'java.awt.Color'
 jrequire 'java.awt.Font'
 jrequire 'java.io.File'
+jrequire 'java.io.FileWriter'
 jrequire 'javax.imageio.ImageIO'
-jrequire 'java.util.List'
 jrequire 'java.util.ArrayList'
 
 jrequire 'org.openscience.cdk.layout.StructureDiagramGenerator'
 jrequire 'org.openscience.cdk.renderer.Renderer'
 jrequire 'org.openscience.cdk.renderer.RendererModel'
-jrequire 'org.openscience.cdk.renderer.generators.RingGenerator'
-jrequire 'org.openscience.cdk.renderer.generators.AtomContainerBoundsGenerator'
 jrequire 'org.openscience.cdk.renderer.generators.BasicBondGenerator'
 jrequire 'org.openscience.cdk.renderer.generators.BasicAtomGenerator'
 jrequire 'org.openscience.cdk.renderer.font.AWTFontManager'
 jrequire 'org.openscience.cdk.renderer.visitor.AWTDrawVisitor'
+jrequire 'org.openscience.cdk.renderer.visitor.SVGGenerator'
 jrequire 'org.openscience.cdk.renderer.color.CPKAtomColors'
 
 
@@ -69,6 +68,14 @@ module RCDK
         Javax::Imageio::ImageIO.write(img, "JPG", file)
       end
 
+      def self.write_svg( molecule, filename, width, height )
+        svg = render_svg molecule, width, height
+        filewriter = Java::Io::FileWriter.new(filename)
+        filewriter.write svg
+        filewriter.flush
+        filewriter.close
+      end
+
       private
 
       def self.render_img( molecule, width, height )
@@ -87,7 +94,12 @@ module RCDK
       end
 
       def self.render_svg( molecule, width, height )
-
+        area = Java::Awt::Rectangle.new width, height
+        visitor = Visitor::SVGGenerator.new
+        render( molecule, visitor, area )
+        svg = visitor.getResult
+        puts svg
+        svg
       end
 
       def self.render(molecule, visitor, area)
@@ -104,7 +116,6 @@ module RCDK
         renderer = Renderer.new(generators, font)
 
         renderer.paintMolecule( mol, visitor, area, true )
-
       end
 
     end
