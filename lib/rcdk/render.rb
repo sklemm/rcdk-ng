@@ -29,12 +29,23 @@ jrequire 'java.awt.Rectangle'
 jrequire 'java.awt.image.BufferedImage'
 jrequire 'java.awt.Graphics2D'
 jrequire 'java.awt.Color'
+jrequire 'java.awt.Font'
 jrequire 'java.io.File'
 jrequire 'javax.imageio.ImageIO'
+jrequire 'java.util.List'
+jrequire 'java.util.ArrayList'
 
 jrequire 'org.openscience.cdk.layout.StructureDiagramGenerator'
-jrequire 'org.openscience.cdk.renderer.Renderer2DModel'
-jrequire 'org.openscience.cdk.renderer.Java2DRenderer'
+jrequire 'org.openscience.cdk.renderer.Renderer'
+jrequire 'org.openscience.cdk.renderer.RendererModel'
+jrequire 'org.openscience.cdk.renderer.generators.RingGenerator'
+jrequire 'org.openscience.cdk.renderer.generators.AtomContainerBoundsGenerator'
+jrequire 'org.openscience.cdk.renderer.generators.BasicBondGenerator'
+jrequire 'org.openscience.cdk.renderer.generators.BasicAtomGenerator'
+jrequire 'org.openscience.cdk.renderer.font.AWTFontManager'
+jrequire 'org.openscience.cdk.renderer.visitor.AWTDrawVisitor'
+jrequire 'org.openscience.cdk.renderer.color.CPKAtomColors'
+
 
 # The Ruby Chemistry Development Kit.
 module RCDK
@@ -43,27 +54,51 @@ module RCDK
   module Render
 
     class Painter
-      include Java::Awt
       include Org::Openscience::Cdk
+      include Org::Openscience::Cdk::Renderer
 
-      def self.draw( molecule, filename, width, height )
-        area = Rectangle.new( width, height )
-        img = Image::BufferedImage.new( width, height,
-          Image::BufferedImage.TYPE_INT_RGB )
-        g2d = img.createGraphics()
-        g2d.setBackground(Color.WHITE)
-
-        sdg = Layout::StructureDiagramGenerator.new
-        sdg.setMolecule(molecule)
-        sdg.generateCoordinates()
-        mol = sdg.getMolecule
-
-        model = Renderer::Renderer2DModel.new
-        renderer = Renderer::Java2DRenderer.new(model)
-
-        renderer.paintMolecule(mol, g2d)
+      def self.write_png( molecule, filename, width, height )
+        img = draw molecule, width, height
         file = Java::Io::File.new(filename)
-        Javax::Imageio::ImageIO.write(img, "PNG", file)
+        Javax::Imageio::ImageIO.write(img, "PNG", file)  
+      end
+
+      def self.write_jpg( molecule, filename, width, height )
+        img = draw molecule, width, height
+        file = Java::Io::File.new(filename)
+        Javax::Imageio::ImageIO.write(img, "JPG", file)
+      end
+
+      private
+
+      def self.draw( molecule, width, height )
+        # prepare molecule
+        sdg = Layout::StructureDiagramGenerator.new
+        sdg.setMolecule molecule
+        sdg.generateCoordinates
+        mol = sdg.getMolecule
+        # prepare image
+        area = Java::Awt::Rectangle.new width, height
+        img = Java::Awt::Image::BufferedImage.new width, height,
+          Java::Awt::Image::BufferedImage.TYPE_INT_RGB
+        g2d = img.createGraphics
+        g2d.setColor Java::Awt::Color.WHITE
+        g2d.fillRect 0, 0, width, height
+        # prepare renderer
+        generators = Java::Util::ArrayList.new
+        generators.add(Generators::BasicBondGenerator.new)
+        generators.add(Generators::BasicAtomGenerator.new)
+        font = Font::AWTFontManager.new
+        renderer = Renderer.new(generators, font)
+        visitor = Visitor::AWTDrawVisitor.new(g2d)
+        #model = RendererModel.new
+        #model.setAtomColorer(Color::CPKAtomColors.new)
+        #model.setForeColor(Java::Awt::Color.GREEN)
+        #visitor.setRendererModel(model)
+        # paint
+        renderer.paintMolecule( mol, visitor, area, true )
+        # return the image
+        img
       end
 
     end

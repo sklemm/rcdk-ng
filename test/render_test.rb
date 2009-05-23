@@ -1,6 +1,3 @@
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-
 $:.unshift File.join(File.dirname(__FILE__),'..','lib')
 
 require 'test/unit'
@@ -13,7 +10,9 @@ class RenderTest < Test::Unit::TestCase
   include RCDK::Render
 
   def test_write_png()
-    molecule = Lang.read_smiles('C=1C=CC=CC=1')
-    Painter.draw(molecule, 'benzene_new.png', 200, 200)
+    molecule = Lang.read_smiles('Clc1ccccc1')
+    Painter.write_png(molecule, 'output/new_chlorobenzene.png', 100, 100)
+    molecule = Lang.read_smiles('CC(=O)OC1=CC=CC=C1C(=O)O')
+    Painter.write_png(molecule, 'output/new_aspirin.png', 100, 100)
   end
 end
