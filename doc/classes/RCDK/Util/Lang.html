@@ -93,13 +93,13 @@ Molecular language translation. Currently molfile, SMILES, and SD files
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000006">get_molfile</a>&nbsp;&nbsp;
-      <a href="#M000008">get_smiles</a>&nbsp;&nbsp;
-      <a href="#M000009">molfile_to_smiles</a>&nbsp;&nbsp;
-      <a href="#M000005">read_molfile</a>&nbsp;&nbsp;
-      <a href="#M000004">read_sdfile</a>&nbsp;&nbsp;
-      <a href="#M000007">read_smiles</a>&nbsp;&nbsp;
-      <a href="#M000010">smiles_to_molfile</a>&nbsp;&nbsp;
+      <a href="#M000009">get_molfile</a>&nbsp;&nbsp;
+      <a href="#M000011">get_smiles</a>&nbsp;&nbsp;
+      <a href="#M000012">molfile_to_smiles</a>&nbsp;&nbsp;
+      <a href="#M000008">read_molfile</a>&nbsp;&nbsp;
+      <a href="#M000007">read_sdfile</a>&nbsp;&nbsp;
+      <a href="#M000010">read_smiles</a>&nbsp;&nbsp;
+      <a href="#M000013">smiles_to_molfile</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -130,11 +130,11 @@ Molecular language translation. Currently molfile, SMILES, and SD files
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000006" class="method-detail">
-        <a name="M000006"></a>
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
 
         <div class="method-heading">
-          <a href="#M000006" class="method-signature">
+          <a href="#M000009" class="method-signature">
           <span class="method-name">get_molfile</span><span class="method-args">(molecule)</span>
           </a>
         </div>
@@ -144,8 +144,8 @@ Molecular language translation. Currently molfile, SMILES, and SD files
 Returns a String-based molfile by parsing the CDK <tt>molecule</tt>.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000006-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000006-source">
+            onclick="toggleCode('M000009-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000009-source">
 <pre>
     <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 82</span>
 82:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_molfile</span>(<span class="ruby-identifier">molecule</span>)
@@ -162,11 +162,11 @@ Returns a String-based molfile by parsing the CDK <tt>molecule</tt>.
         </div>
       </div>
 
-      <div id="method-M000008" class="method-detail">
-        <a name="M000008"></a>
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
 
         <div class="method-heading">
-          <a href="#M000008" class="method-signature">
+          <a href="#M000011" class="method-signature">
           <span class="method-name">get_smiles</span><span class="method-args">(molecule)</span>
           </a>
         </div>
@@ -177,8 +177,8 @@ Returns a SMILES string based on the structure of the indicated CDK
 <tt>molecule</tt>.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000008-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000008-source">
+            onclick="toggleCode('M000011-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000011-source">
 <pre>
      <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 99</span>
  99:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_smiles</span>(<span class="ruby-identifier">molecule</span>)
@@ -189,11 +189,11 @@ Returns a SMILES string based on the structure of the indicated CDK
         </div>
       </div>
 
-      <div id="method-M000009" class="method-detail">
-        <a name="M000009"></a>
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
 
         <div class="method-heading">
-          <a href="#M000009" class="method-signature">
+          <a href="#M000012" class="method-signature">
           <span class="method-name">molfile_to_smiles</span><span class="method-args">(molfile)</span>
           </a>
         </div>
@@ -203,8 +203,8 @@ Returns a SMILES string based on the structure of the indicated CDK
 Returns a SMILES string by parsing the <tt>molfile</tt> string.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000009-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000009-source">
+            onclick="toggleCode('M000012-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000012-source">
 <pre>
      <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 104</span>
 104:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">molfile_to_smiles</span>(<span class="ruby-identifier">molfile</span>)
@@ -215,11 +215,11 @@ Returns a SMILES string by parsing the <tt>molfile</tt> string.
         </div>
       </div>
 
-      <div id="method-M000005" class="method-detail">
-        <a name="M000005"></a>
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
 
         <div class="method-heading">
-          <a href="#M000005" class="method-signature">
+          <a href="#M000008" class="method-signature">
           <span class="method-name">read_molfile</span><span class="method-args">(molfile)</span>
           </a>
         </div>
@@ -230,8 +230,8 @@ Returns a CDK <tt>Molecule</tt> given the String-based molfile
 <tt>molfile</tt>.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000005-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000005-source">
+            onclick="toggleCode('M000008-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000008-source">
 <pre>
     <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 74</span>
 74:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">read_molfile</span>(<span class="ruby-identifier">molfile</span>)
@@ -245,11 +245,11 @@ Returns a CDK <tt>Molecule</tt> given the String-based molfile
         </div>
       </div>
 
-      <div id="method-M000004" class="method-detail">
-        <a name="M000004"></a>
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
 
         <div class="method-heading">
-          <a href="#M000004" class="method-signature">
+          <a href="#M000007" class="method-signature">
           <span class="method-name">read_sdfile</span><span class="method-args">(sdfile)</span>
           </a>
         </div>
@@ -260,8 +260,8 @@ Returns an array of CDK <tt>Molecules</tt> given the filename of a SD file
 <tt>sdfile</tt>
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000004-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000004-source">
+            onclick="toggleCode('M000007-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000007-source">
 <pre>
     <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 60</span>
 60:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">read_sdfile</span>(<span class="ruby-identifier">sdfile</span>)
@@ -280,11 +280,11 @@ Returns an array of CDK <tt>Molecules</tt> given the filename of a SD file
         </div>
       </div>
 
-      <div id="method-M000007" class="method-detail">
-        <a name="M000007"></a>
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
 
         <div class="method-heading">
-          <a href="#M000007" class="method-signature">
+          <a href="#M000010" class="method-signature">
           <span class="method-name">read_smiles</span><span class="method-args">(smiles)</span>
           </a>
         </div>
@@ -294,8 +294,8 @@ Returns an array of CDK <tt>Molecules</tt> given the filename of a SD file
 Returns a CDK <tt>Molecule</tt> by parsing <tt>smiles</tt>.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000007-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000007-source">
+            onclick="toggleCode('M000010-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000010-source">
 <pre>
     <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 93</span>
 93:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">read_smiles</span>(<span class="ruby-identifier">smiles</span>)
@@ -306,11 +306,11 @@ Returns a CDK <tt>Molecule</tt> by parsing <tt>smiles</tt>.
         </div>
       </div>
 
-      <div id="method-M000010" class="method-detail">
-        <a name="M000010"></a>
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
 
         <div class="method-heading">
-          <a href="#M000010" class="method-signature">
+          <a href="#M000013" class="method-signature">
           <span class="method-name">smiles_to_molfile</span><span class="method-args">(smiles)</span>
           </a>
         </div>
@@ -320,8 +320,8 @@ Returns a CDK <tt>Molecule</tt> by parsing <tt>smiles</tt>.
 Returns a molfiles STRING by parsing <tt>smiles</tt>.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000010-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000010-source">
+            onclick="toggleCode('M000013-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000013-source">
 <pre>
      <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 109</span>
 109:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">smiles_to_molfile</span>(<span class="ruby-identifier">smiles</span>)

@@ -56,23 +56,31 @@ module RCDK
   # CDK Rendering core functions
   module Render
 
+    # Helper class for <tt>Util::Image</tt>.
+    # Replaces structure-cdk ImageKit
     class Painter
       include Org::Apache::Batik
       include Org::Openscience::Cdk
       include Org::Openscience::Cdk::Renderer
 
+      # Writes a <tt>width</tt> by <tt>height</tt> PNG image to
+      # <tt>path_to_png</tt> using a <tt>molecule</tt>.
       def self.write_png( molecule, filename, width, height )
         img = render_img molecule, width, height
         file = Java::Io::File.new(filename)
         Javax::Imageio::ImageIO.write(img, "PNG", file)
       end
 
+      # Writes a <tt>width</tt> by <tt>height</tt> JPG image to
+      # <tt>path_to_png</tt> using a <tt>molecule</tt>.
       def self.write_jpg( molecule, filename, width, height )
         img = render_img molecule, width, height
         file = Java::Io::File.new(filename)
         Javax::Imageio::ImageIO.write(img, "JPG", file)
       end
 
+      # Writes a <tt>width</tt> by <tt>height</tt> SVG document to
+      # <tt>path_to_png</tt> using a <tt>molecule</tt>.
       def self.write_svg( molecule, filename, width, height )
         svg2d = render_svg molecule, width, height
         filewriter = Java::Io::FileWriter.new(filename)
