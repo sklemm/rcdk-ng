@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: RCDK::Render::Painter</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">RCDK::Render::Painter</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/rcdk/render_rb.html">
+                lib/rcdk/render.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Helper class for <tt><a href="../Util/Image.html">Util::Image</a></tt>.
+Replaces structure-cdk ImageKit
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000003">write_jpg</a>&nbsp;&nbsp;
+      <a href="#M000002">write_png</a>&nbsp;&nbsp;
+      <a href="#M000004">write_svg</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name">Org::Apache::Batik</span>
+        <span class="include-name">Org::Openscience::Cdk</span>
+        <span class="include-name">Org::Openscience::Cdk::Renderer</span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000003" class="method-detail">
+        <a name="M000003"></a>
+
+        <div class="method-heading">
+          <a href="#M000003" class="method-signature">
+          <span class="method-name">write_jpg</span><span class="method-args">( molecule, filename, width, height )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Writes a <tt>width</tt> by <tt>height</tt> JPG image to
+<tt>path_to_png</tt> using a <tt>molecule</tt>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000003-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000003-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/rcdk/render.rb, line 76</span>
+76:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">write_jpg</span>( <span class="ruby-identifier">molecule</span>, <span class="ruby-identifier">filename</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span> )
+77:         <span class="ruby-identifier">img</span> = <span class="ruby-identifier">render_img</span> <span class="ruby-identifier">molecule</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>
+78:         <span class="ruby-identifier">file</span> = <span class="ruby-constant">Java</span><span class="ruby-operator">::</span><span class="ruby-constant">Io</span><span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">filename</span>)
+79:         <span class="ruby-constant">Javax</span><span class="ruby-operator">::</span><span class="ruby-constant">Imageio</span><span class="ruby-operator">::</span><span class="ruby-constant">ImageIO</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">img</span>, <span class="ruby-value str">&quot;JPG&quot;</span>, <span class="ruby-identifier">file</span>)
+80:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000002" class="method-detail">
+        <a name="M000002"></a>
+
+        <div class="method-heading">
+          <a href="#M000002" class="method-signature">
+          <span class="method-name">write_png</span><span class="method-args">( molecule, filename, width, height )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Writes a <tt>width</tt> by <tt>height</tt> PNG image to
+<tt>path_to_png</tt> using a <tt>molecule</tt>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000002-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000002-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/rcdk/render.rb, line 68</span>
+68:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">write_png</span>( <span class="ruby-identifier">molecule</span>, <span class="ruby-identifier">filename</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span> )
+69:         <span class="ruby-identifier">img</span> = <span class="ruby-identifier">render_img</span> <span class="ruby-identifier">molecule</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>
+70:         <span class="ruby-identifier">file</span> = <span class="ruby-constant">Java</span><span class="ruby-operator">::</span><span class="ruby-constant">Io</span><span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">filename</span>)
+71:         <span class="ruby-constant">Javax</span><span class="ruby-operator">::</span><span class="ruby-constant">Imageio</span><span class="ruby-operator">::</span><span class="ruby-constant">ImageIO</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">img</span>, <span class="ruby-value str">&quot;PNG&quot;</span>, <span class="ruby-identifier">file</span>)
+72:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000004" class="method-detail">
+        <a name="M000004"></a>
+
+        <div class="method-heading">
+          <a href="#M000004" class="method-signature">
+          <span class="method-name">write_svg</span><span class="method-args">( molecule, filename, width, height )</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Writes a <tt>width</tt> by <tt>height</tt> SVG document to
+<tt>path_to_png</tt> using a <tt>molecule</tt>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000004-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000004-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/rcdk/render.rb, line 84</span>
+84:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">write_svg</span>( <span class="ruby-identifier">molecule</span>, <span class="ruby-identifier">filename</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span> )
+85:         <span class="ruby-identifier">svg2d</span> = <span class="ruby-identifier">render_svg</span> <span class="ruby-identifier">molecule</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>
+86:         <span class="ruby-identifier">filewriter</span> = <span class="ruby-constant">Java</span><span class="ruby-operator">::</span><span class="ruby-constant">Io</span><span class="ruby-operator">::</span><span class="ruby-constant">FileWriter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">filename</span>)
+87:         <span class="ruby-identifier">svg2d</span>.<span class="ruby-identifier">stream</span>(<span class="ruby-identifier">filewriter</span>, <span class="ruby-keyword kw">true</span>)
+88:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
