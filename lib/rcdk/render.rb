@@ -121,11 +121,21 @@ module RCDK
         generators.add(Generators::BasicAtomGenerator.new)
         font = Font::AWTFontManager.new
         renderer = Renderer.new(generators, font)
+        renderer.setup(mol,area)
         model = renderer.getRenderer2DModel
         model.setAtomColorer Color::CPKAtomColors.new
         model.setBondWidth 2
 
-        renderer.paintMolecule( mol, visitor, area, true )
+        # if model is bigger than draw area, zoom to fit screen.
+        # this prevents too that small molecules are drawn to big
+        diagram_bounds = renderer.calculateDiagramBounds(mol)
+        if diagram_bounds.getWidth > area.getWidth || diagram_bounds.getHeight > area.getHeight
+          renderer.setZoomToFit(area.getWidth, area.getHeight,
+            diagram_bounds.getWidth, diagram_bounds.getHeight)
+          model.setBondWidth 1
+        end
+
+        renderer.paintMolecule( mol, visitor )
       end
 
     end
