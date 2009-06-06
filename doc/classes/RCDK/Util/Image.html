@@ -92,12 +92,12 @@ Raster and SVG 2-D molecular images.
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000016">molfile_to_jpg</a>&nbsp;&nbsp;
-      <a href="#M000014">molfile_to_png</a>&nbsp;&nbsp;
-      <a href="#M000015">molfile_to_svg</a>&nbsp;&nbsp;
-      <a href="#M000019">smiles_to_jpg</a>&nbsp;&nbsp;
-      <a href="#M000017">smiles_to_png</a>&nbsp;&nbsp;
-      <a href="#M000018">smiles_to_svg</a>&nbsp;&nbsp;
+      <a href="#M000015">molfile_to_jpg</a>&nbsp;&nbsp;
+      <a href="#M000013">molfile_to_png</a>&nbsp;&nbsp;
+      <a href="#M000014">molfile_to_svg</a>&nbsp;&nbsp;
+      <a href="#M000018">smiles_to_jpg</a>&nbsp;&nbsp;
+      <a href="#M000016">smiles_to_png</a>&nbsp;&nbsp;
+      <a href="#M000017">smiles_to_svg</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -119,11 +119,11 @@ Raster and SVG 2-D molecular images.
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000016" class="method-detail">
-        <a name="M000016"></a>
+      <div id="method-M000015" class="method-detail">
+        <a name="M000015"></a>
 
         <div class="method-heading">
-          <a href="#M000016" class="method-signature">
+          <a href="#M000015" class="method-signature">
           <span class="method-name">molfile_to_jpg</span><span class="method-args">(molfile, path_to_jpg, width, height)</span>
           </a>
         </div>
@@ -134,23 +134,23 @@ Writes a <tt>width</tt> by <tt>height</tt> JPG image to
 <tt>path_to_jpg</tt> using <tt>molfile</tt>.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000016-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000016-source">
+            onclick="toggleCode('M000015-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000015-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 152</span>
-152:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">molfile_to_jpg</span>(<span class="ruby-identifier">molfile</span>, <span class="ruby-identifier">path_to_jpg</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
-153:         <span class="ruby-constant">Render</span><span class="ruby-operator">::</span><span class="ruby-constant">Painter</span>.<span class="ruby-identifier">write_jpg</span>(<span class="ruby-constant">Lang</span>.<span class="ruby-identifier">read_molfile</span>(<span class="ruby-identifier">molfile</span>), <span class="ruby-identifier">path_to_jpg</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
-154:       <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 136</span>
+136:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">molfile_to_jpg</span>(<span class="ruby-identifier">molfile</span>, <span class="ruby-identifier">path_to_jpg</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
+137:         <span class="ruby-constant">Render</span><span class="ruby-operator">::</span><span class="ruby-constant">Painter</span>.<span class="ruby-identifier">write_jpg</span>(<span class="ruby-constant">Lang</span>.<span class="ruby-identifier">read_molfile</span>(<span class="ruby-identifier">molfile</span>), <span class="ruby-identifier">path_to_jpg</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
+138:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
       </div>
 
-      <div id="method-M000014" class="method-detail">
-        <a name="M000014"></a>
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
 
         <div class="method-heading">
-          <a href="#M000014" class="method-signature">
+          <a href="#M000013" class="method-signature">
           <span class="method-name">molfile_to_png</span><span class="method-args">(molfile, path_to_png, width, height)</span>
           </a>
         </div>
@@ -161,23 +161,23 @@ Writes a <tt>width</tt> by <tt>height</tt> PNG image to
 <tt>path_to_png</tt> using <tt>molfile</tt>.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000014-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000014-source">
+            onclick="toggleCode('M000013-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000013-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 140</span>
-140:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">molfile_to_png</span>(<span class="ruby-identifier">molfile</span>, <span class="ruby-identifier">path_to_png</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
-141:         <span class="ruby-constant">Render</span><span class="ruby-operator">::</span><span class="ruby-constant">Painter</span>.<span class="ruby-identifier">write_png</span>(<span class="ruby-constant">Lang</span>.<span class="ruby-identifier">read_molfile</span>(<span class="ruby-identifier">molfile</span>), <span class="ruby-identifier">path_to_png</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
-142:       <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 124</span>
+124:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">molfile_to_png</span>(<span class="ruby-identifier">molfile</span>, <span class="ruby-identifier">path_to_png</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
+125:         <span class="ruby-constant">Render</span><span class="ruby-operator">::</span><span class="ruby-constant">Painter</span>.<span class="ruby-identifier">write_png</span>(<span class="ruby-constant">Lang</span>.<span class="ruby-identifier">read_molfile</span>(<span class="ruby-identifier">molfile</span>), <span class="ruby-identifier">path_to_png</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
+126:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
       </div>
 
-      <div id="method-M000015" class="method-detail">
-        <a name="M000015"></a>
+      <div id="method-M000014" class="method-detail">
+        <a name="M000014"></a>
 
         <div class="method-heading">
-          <a href="#M000015" class="method-signature">
+          <a href="#M000014" class="method-signature">
           <span class="method-name">molfile_to_svg</span><span class="method-args">(molfile, path_to_svg, width, height)</span>
           </a>
         </div>
@@ -188,23 +188,23 @@ Writes a <tt>width</tt> by <tt>height</tt> SVG document to
 <tt>path_to_svg</tt> using <tt>molfile</tt>.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000015-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000015-source">
+            onclick="toggleCode('M000014-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000014-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 146</span>
-146:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">molfile_to_svg</span>(<span class="ruby-identifier">molfile</span>, <span class="ruby-identifier">path_to_svg</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
-147:         <span class="ruby-constant">Render</span><span class="ruby-operator">::</span><span class="ruby-constant">Painter</span>.<span class="ruby-identifier">write_svg</span>(<span class="ruby-constant">Lang</span>.<span class="ruby-identifier">read_molfile</span>(<span class="ruby-identifier">molfile</span>), <span class="ruby-identifier">path_to_svg</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
-148:       <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 130</span>
+130:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">molfile_to_svg</span>(<span class="ruby-identifier">molfile</span>, <span class="ruby-identifier">path_to_svg</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
+131:         <span class="ruby-constant">Render</span><span class="ruby-operator">::</span><span class="ruby-constant">Painter</span>.<span class="ruby-identifier">write_svg</span>(<span class="ruby-constant">Lang</span>.<span class="ruby-identifier">read_molfile</span>(<span class="ruby-identifier">molfile</span>), <span class="ruby-identifier">path_to_svg</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
+132:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
       </div>
 
-      <div id="method-M000019" class="method-detail">
-        <a name="M000019"></a>
+      <div id="method-M000018" class="method-detail">
+        <a name="M000018"></a>
 
         <div class="method-heading">
-          <a href="#M000019" class="method-signature">
+          <a href="#M000018" class="method-signature">
           <span class="method-name">smiles_to_jpg</span><span class="method-args">(smiles, path_to_jpg, width, height)</span>
           </a>
         </div>
@@ -216,24 +216,24 @@ Writes a <tt>width</tt> by <tt>height</tt> JPG image to
 assigned.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000019-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000019-source">
+            onclick="toggleCode('M000018-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000018-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 175</span>
-175:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">smiles_to_jpg</span>(<span class="ruby-identifier">smiles</span>, <span class="ruby-identifier">path_to_jpg</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
-176:         <span class="ruby-identifier">mol</span> = <span class="ruby-constant">XY</span>.<span class="ruby-identifier">coordinate_molecule</span>(<span class="ruby-constant">Lang</span>.<span class="ruby-identifier">read_smiles</span>(<span class="ruby-identifier">smiles</span>))
-177:         <span class="ruby-constant">Render</span><span class="ruby-operator">::</span><span class="ruby-constant">Painter</span>.<span class="ruby-identifier">write_jpg</span>(<span class="ruby-identifier">mol</span>, <span class="ruby-identifier">path_to_jpg</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
-178:       <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 159</span>
+159:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">smiles_to_jpg</span>(<span class="ruby-identifier">smiles</span>, <span class="ruby-identifier">path_to_jpg</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
+160:         <span class="ruby-identifier">mol</span> = <span class="ruby-constant">XY</span>.<span class="ruby-identifier">coordinate_molecule</span>(<span class="ruby-constant">Lang</span>.<span class="ruby-identifier">read_smiles</span>(<span class="ruby-identifier">smiles</span>))
+161:         <span class="ruby-constant">Render</span><span class="ruby-operator">::</span><span class="ruby-constant">Painter</span>.<span class="ruby-identifier">write_jpg</span>(<span class="ruby-identifier">mol</span>, <span class="ruby-identifier">path_to_jpg</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
+162:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
       </div>
 
-      <div id="method-M000017" class="method-detail">
-        <a name="M000017"></a>
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
 
         <div class="method-heading">
-          <a href="#M000017" class="method-signature">
+          <a href="#M000016" class="method-signature">
           <span class="method-name">smiles_to_png</span><span class="method-args">(smiles, path_to_png, width, height)</span>
           </a>
         </div>
@@ -245,24 +245,24 @@ Writes a <tt>width</tt> by <tt>height</tt> PNG image to
 assigned.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000017-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000017-source">
+            onclick="toggleCode('M000016-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000016-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 159</span>
-159:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">smiles_to_png</span>(<span class="ruby-identifier">smiles</span>, <span class="ruby-identifier">path_to_png</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
-160:         <span class="ruby-identifier">mol</span> = <span class="ruby-constant">XY</span>.<span class="ruby-identifier">coordinate_molecule</span>(<span class="ruby-constant">Lang</span>.<span class="ruby-identifier">read_smiles</span>(<span class="ruby-identifier">smiles</span>))
-161:         <span class="ruby-constant">Render</span><span class="ruby-operator">::</span><span class="ruby-constant">Painter</span>.<span class="ruby-identifier">write_png</span>(<span class="ruby-identifier">mol</span>, <span class="ruby-identifier">path_to_png</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
-162:       <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 143</span>
+143:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">smiles_to_png</span>(<span class="ruby-identifier">smiles</span>, <span class="ruby-identifier">path_to_png</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
+144:         <span class="ruby-identifier">mol</span> = <span class="ruby-constant">XY</span>.<span class="ruby-identifier">coordinate_molecule</span>(<span class="ruby-constant">Lang</span>.<span class="ruby-identifier">read_smiles</span>(<span class="ruby-identifier">smiles</span>))
+145:         <span class="ruby-constant">Render</span><span class="ruby-operator">::</span><span class="ruby-constant">Painter</span>.<span class="ruby-identifier">write_png</span>(<span class="ruby-identifier">mol</span>, <span class="ruby-identifier">path_to_png</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
+146:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
       </div>
 
-      <div id="method-M000018" class="method-detail">
-        <a name="M000018"></a>
+      <div id="method-M000017" class="method-detail">
+        <a name="M000017"></a>
 
         <div class="method-heading">
-          <a href="#M000018" class="method-signature">
+          <a href="#M000017" class="method-signature">
           <span class="method-name">smiles_to_svg</span><span class="method-args">(smiles, path_to_svg, width, height)</span>
           </a>
         </div>
@@ -274,14 +274,14 @@ Writes a <tt>width</tt> by <tt>height</tt> SVG document to
 assigned.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000018-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000018-source">
+            onclick="toggleCode('M000017-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000017-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 167</span>
-167:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">smiles_to_svg</span>(<span class="ruby-identifier">smiles</span>, <span class="ruby-identifier">path_to_svg</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
-168:         <span class="ruby-identifier">mol</span> = <span class="ruby-constant">XY</span>.<span class="ruby-identifier">coordinate_molecule</span>(<span class="ruby-constant">Lang</span>.<span class="ruby-identifier">read_smiles</span>(<span class="ruby-identifier">smiles</span>))
-169:         <span class="ruby-constant">Render</span><span class="ruby-operator">::</span><span class="ruby-constant">Painter</span>.<span class="ruby-identifier">write_svg</span>(<span class="ruby-identifier">mol</span>, <span class="ruby-identifier">path_to_svg</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
-170:       <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 151</span>
+151:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">smiles_to_svg</span>(<span class="ruby-identifier">smiles</span>, <span class="ruby-identifier">path_to_svg</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
+152:         <span class="ruby-identifier">mol</span> = <span class="ruby-constant">XY</span>.<span class="ruby-identifier">coordinate_molecule</span>(<span class="ruby-constant">Lang</span>.<span class="ruby-identifier">read_smiles</span>(<span class="ruby-identifier">smiles</span>))
+153:         <span class="ruby-constant">Render</span><span class="ruby-operator">::</span><span class="ruby-constant">Painter</span>.<span class="ruby-identifier">write_svg</span>(<span class="ruby-identifier">mol</span>, <span class="ruby-identifier">path_to_svg</span>, <span class="ruby-identifier">width</span>, <span class="ruby-identifier">height</span>)
+154:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
