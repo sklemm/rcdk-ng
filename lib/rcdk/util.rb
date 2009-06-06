@@ -27,8 +27,6 @@ require 'rcdk/render'
 
 jrequire 'java.io.StringReader'
 jrequire 'java.io.StringWriter'
-jrequire 'java.io.FileInputStream'
-jrequire 'org.openscience.cdk.io.iterator.IteratingMDLReader'
 jrequire 'org.openscience.cdk.io.MDLWriter'
 jrequire 'org.openscience.cdk.io.MDLReader'
 jrequire 'org.openscience.cdk.smiles.SmilesParser'
@@ -54,20 +52,6 @@ module RCDK
       @@mdl_writer = Io::MDLWriter.new
       @@smiles_parser = Smiles::SmilesParser.new(DefaultChemObjectBuilder.getInstance)
       @@smiles_generator = Smiles::SmilesGenerator.new
-      
-      # Returns an array of CDK <tt>Molecules</tt> given the filename of a
-      # SD file <tt>sdfile</tt>
-      def self.read_sdfile(sdfile)
-        reader = Io::Iterator::IteratingMDLReader.new(
-          FileInputStream.new(sdfile),
-          DefaultChemObjectBuilder.getInstance)
-
-        mols = Array.new
-        while reader.has_next
-          mols << reader.next
-        end
-        mols
-      end
 
       # Returns a CDK <tt>Molecule</tt> given the String-based molfile
       # <tt>molfile</tt>.
