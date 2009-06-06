@@ -27,6 +27,7 @@ $:.unshift File.join(File.dirname(__FILE__), "..", "lib")
 require 'test/unit'
 require 'rcdk'
 require 'rcdk/util'
+require 'test/render_test'
 
 jrequire 'org.openscience.cdk.templates.MoleculeFactory'
 
