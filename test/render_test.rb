@@ -4,6 +4,7 @@ require 'test/unit'
 require 'rcdk'
 require 'rcdk/util'
 require 'rcdk/render'
+require 'tempfile'
 
 class RenderTest < Test::Unit::TestCase
   include RCDK::Util
@@ -11,7 +12,7 @@ class RenderTest < Test::Unit::TestCase
 
 
   def test_render_imgs()
-    molecule = Lang.read_smiles('Clc1=cc=cc=c1')
+    molecule = Lang.read_smiles('Clc1ccccc1')
     Painter.write_png(molecule, 'output/new_chlorobenzene.png', 200, 200)
     Painter.write_jpg(molecule, 'output/new_chlorobenzene.jpg', 200, 200)
     Painter.write_svg(molecule, 'output/new_chlorobenzene.svg', 200, 200)
@@ -25,12 +26,19 @@ class RenderTest < Test::Unit::TestCase
     Painter.write_svg(molecule, 'output/new_cyclosporine.svg', 200, 200)
   end
 
-    def setup
-      @aspirin =
-        "OC(=O)C1=CC=CC=C1(OC(=O)C"
+  def test_render_temp()
+    molecule = Lang.read_smiles(@aspirin)
+    file = Tempfile.new('la')
+    puts file.path
+    Painter.write_svg(molecule, file.path, 200, 200)
+  end
 
-      @cyclosporine =
-        "
+  def setup
+    @aspirin =
+      "OC(=O)C1=CC=CC=C1(OC(=O)C"
+
+    @cyclosporine =
+      "
   CDK    5/12/09,19:33
 
  85 85  0  0  0  0  0  0  0  0999 V2000
