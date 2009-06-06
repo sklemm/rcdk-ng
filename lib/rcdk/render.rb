@@ -6,7 +6,7 @@
 # Blog: http://depth-first.com
 #
 # Copyright (C) 2006 Richard L. Apodaca
-#           (C) 2009 Sebastian Klemm
+# Author    (C) 2009 Sebastian Klemm
 #
 # This library is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public
