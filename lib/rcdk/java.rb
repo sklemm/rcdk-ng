@@ -29,7 +29,7 @@ require 'rjb'
 # Loads the JVM with the given <tt>classpath</tt>.
 # All needed .jars should be included in <tt>classpath</tt>.
 def load_jvm(classpath)
-  Rjb::load(classpath, ['-Xms128m', '-Xmx1024m'])
+  Rjb::load(classpath, ['-Xms128m', '-Xmx512m'])
 end
 
 module Kernel

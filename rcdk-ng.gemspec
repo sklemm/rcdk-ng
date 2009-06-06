@@ -1,6 +1,6 @@
 spec = Gem::Specification.new do |s|
   s.name = 'rcdk-ng'
-  s.version = '0.5.0'
+  s.version = '0.5.1'
   s.author = "Sebastian Klemm"
   s.homepage = ""
   s.platform = Gem::Platform::RUBY
