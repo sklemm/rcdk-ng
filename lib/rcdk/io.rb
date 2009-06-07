@@ -24,6 +24,7 @@
 # Boston, MA 02111-1301, USA.
 
 require 'rcdk'
+require 'rcdk/util'
 
 jrequire 'java.io.StringReader'
 jrequire 'org.openscience.cdk.io.iterator.IteratingMDLReader'
@@ -48,47 +49,40 @@ module RCDK
 
       # load the data in the reader.
       # filedata expects a subclass of Ruby IO.
-      # filedata.read should return the filecontent as string
+      def initialize(filedata)
+        super()
+        @file = filedata
+      end
+
+      # load the data in the reader.
+      # filedata expects a subclass of Ruby IO.
       def read_data(filedata)
-        begin
-          @reader = Io::Iterator::IteratingMDLReader.new(
-            Java::Io::StringReader.new(filedata.read),
-            DefaultChemObjectBuilder.getInstance
-          )
-          true
-        rescue => e
-          puts "SDF parsing failed: #{e} #{e.class} #{$!.inspect}"
-          return false
+        if @file
+          @file.close
         end
+        @file = filedata
       end
 
-      # Returns true if another IMolecule can be read.
+      # Returns true if another molfile can be read.
       def has_next?
-        begin
-          @reader.has_next
-        rescue => e
-          puts "SDF parsing failed: #{e} #{e.class} #{$!.inspect}"
-          false
+        has_next = false
+        pos = @file.pos
+        entry = @file.gets("$$$$\n")
+        if entry && entry.match(/M  END/)
+          has_next = true
         end
+        @file.pos = pos
+        has_next
       end
 
-      # Returns the next IMolecule.
+      # Returns the next molfile entry.
       def next
-        begin
-          @reader.next
-        rescue => e
-          puts "SDF parsing failed: #{e} #{e.class} #{$!.inspect}"
-          nil
-        end
+        @file.gets("$$$$\n")
       end
 
       # Closes the Reader's resources.
       def close
-        begin
-          @reader.close
-        rescue => e
-          puts "SDF parsing failed: #{e} #{e.class} #{$!.inspect}"
-        end
+        @file.close
       end
 
     end
