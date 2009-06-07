@@ -15,13 +15,10 @@ class SDFTest < Test::Unit::TestCase
     
     file = File.new(@@filename, "r")
     fh = IO.new(file.fileno,"r")
-    reader = SdfReader.new
-    reader.read_data(fh)
-    fh.close
+    reader = SdfReader.new(fh)
     count = 0
     while reader.has_next?
-      mol = reader.next
-      puts mol.getProperty(Org::Openscience::Cdk::CDKConstants.TITLE).toString
+      reader.next
       count+=1
     end
 
