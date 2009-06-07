@@ -83,7 +83,8 @@
 Minimal wrapper for the IteratingMDLReader
 </p>
 <p>
-Usage: &lt;pre&gt;sdf_reader = RCDK::SdfReader.new
+Usage: &lt;pre&gt;sdf_reader = <a
+href="SdfReader.html#M000019">RCDK::SdfReader.new</a>
 sdf_reader.read_data(filedata) while sdf_reader.has_next
 </p>
 <pre>
@@ -102,10 +103,11 @@ end&lt;/pre&gt;
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000022">close</a>&nbsp;&nbsp;
-      <a href="#M000020">has_next?</a>&nbsp;&nbsp;
-      <a href="#M000021">next</a>&nbsp;&nbsp;
-      <a href="#M000019">read_data</a>&nbsp;&nbsp;
+      <a href="#M000023">close</a>&nbsp;&nbsp;
+      <a href="#M000021">has_next?</a>&nbsp;&nbsp;
+      <a href="#M000019">new</a>&nbsp;&nbsp;
+      <a href="#M000022">next</a>&nbsp;&nbsp;
+      <a href="#M000020">read_data</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -132,13 +134,43 @@ end&lt;/pre&gt;
 
     <!-- if method_list -->
     <div id="methods">
-      <h3 class="section-bar">Public Instance methods</h3>
+      <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000022" class="method-detail">
-        <a name="M000022"></a>
+      <div id="method-M000019" class="method-detail">
+        <a name="M000019"></a>
 
         <div class="method-heading">
-          <a href="#M000022" class="method-signature">
+          <a href="#M000019" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">(filedata)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+load the data in the reader. filedata expects a subclass of Ruby <a
+href="../IO.html">IO</a>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000019-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000019-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/rcdk/io.rb, line 52</span>
+52:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">filedata</span>)
+53:         <span class="ruby-keyword kw">super</span>()
+54:         <span class="ruby-ivar">@file</span> = <span class="ruby-identifier">filedata</span>
+55:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000023" class="method-detail">
+        <a name="M000023"></a>
+
+        <div class="method-heading">
+          <a href="#M000023" class="method-signature">
           <span class="method-name">close</span><span class="method-args">()</span>
           </a>
         </div>
@@ -148,48 +180,13 @@ end&lt;/pre&gt;
 Closes the Reader&#8216;s resources.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000022-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000022-source">
+            onclick="toggleCode('M000023-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000023-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/rcdk/io.rb, line 86</span>
-86:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">close</span>
-87:         <span class="ruby-keyword kw">begin</span>
-88:           <span class="ruby-ivar">@reader</span>.<span class="ruby-identifier">close</span>
-89:         <span class="ruby-keyword kw">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
-90:           <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;SDF parsing failed: #{e} #{e.class} #{$!.inspect}&quot;</span>
-91:         <span class="ruby-keyword kw">end</span>
-92:       <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
-        </div>
-      </div>
-
-      <div id="method-M000020" class="method-detail">
-        <a name="M000020"></a>
-
-        <div class="method-heading">
-          <a href="#M000020" class="method-signature">
-          <span class="method-name">has_next?</span><span class="method-args">()</span>
-          </a>
-        </div>
-      
-        <div class="method-description">
-          <p>
-Returns true if another IMolecule can be read.
-</p>
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000020-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000020-source">
-<pre>
-    <span class="ruby-comment cmt"># File lib/rcdk/io.rb, line 66</span>
-66:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">has_next?</span>
-67:         <span class="ruby-keyword kw">begin</span>
-68:           <span class="ruby-ivar">@reader</span>.<span class="ruby-identifier">has_next</span>
-69:         <span class="ruby-keyword kw">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
-70:           <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;SDF parsing failed: #{e} #{e.class} #{$!.inspect}&quot;</span>
-71:           <span class="ruby-keyword kw">false</span>
-72:         <span class="ruby-keyword kw">end</span>
-73:       <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File lib/rcdk/io.rb, line 84</span>
+84:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">close</span>
+85:         <span class="ruby-ivar">@file</span>.<span class="ruby-identifier">close</span>
+86:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -200,37 +197,65 @@ Returns true if another IMolecule can be read.
 
         <div class="method-heading">
           <a href="#M000021" class="method-signature">
+          <span class="method-name">has_next?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns true if another molfile can be read.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000021-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000021-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/rcdk/io.rb, line 67</span>
+67:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">has_next?</span>
+68:         <span class="ruby-identifier">has_next</span> = <span class="ruby-keyword kw">false</span>
+69:         <span class="ruby-identifier">pos</span> = <span class="ruby-ivar">@file</span>.<span class="ruby-identifier">pos</span>
+70:         <span class="ruby-identifier">entry</span> = <span class="ruby-ivar">@file</span>.<span class="ruby-identifier">gets</span>(<span class="ruby-value str">&quot;$$$$\n&quot;</span>)
+71:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">entry</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp re">/M  END/</span>)
+72:           <span class="ruby-identifier">has_next</span> = <span class="ruby-keyword kw">true</span>
+73:         <span class="ruby-keyword kw">end</span>
+74:         <span class="ruby-ivar">@file</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-identifier">pos</span>
+75:         <span class="ruby-identifier">has_next</span>
+76:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000022" class="method-detail">
+        <a name="M000022"></a>
+
+        <div class="method-heading">
+          <a href="#M000022" class="method-signature">
           <span class="method-name">next</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-Returns the <a href="SdfReader.html#M000021">next</a> IMolecule.
+Returns the <a href="SdfReader.html#M000022">next</a> molfile entry.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000021-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000021-source">
+            onclick="toggleCode('M000022-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000022-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/rcdk/io.rb, line 76</span>
-76:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">next</span>
-77:         <span class="ruby-keyword kw">begin</span>
-78:           <span class="ruby-ivar">@reader</span>.<span class="ruby-identifier">next</span>
-79:         <span class="ruby-keyword kw">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
-80:           <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;SDF parsing failed: #{e} #{e.class} #{$!.inspect}&quot;</span>
-81:           <span class="ruby-keyword kw">nil</span>
-82:         <span class="ruby-keyword kw">end</span>
-83:       <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File lib/rcdk/io.rb, line 79</span>
+79:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">next</span>
+80:         <span class="ruby-ivar">@file</span>.<span class="ruby-identifier">gets</span>(<span class="ruby-value str">&quot;$$$$\n&quot;</span>)
+81:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
       </div>
 
-      <div id="method-M000019" class="method-detail">
-        <a name="M000019"></a>
+      <div id="method-M000020" class="method-detail">
+        <a name="M000020"></a>
 
         <div class="method-heading">
-          <a href="#M000019" class="method-signature">
+          <a href="#M000020" class="method-signature">
           <span class="method-name">read_data</span><span class="method-args">(filedata)</span>
           </a>
         </div>
@@ -238,26 +263,19 @@ Returns the <a href="SdfReader.html#M000021">next</a> IMolecule.
         <div class="method-description">
           <p>
 load the data in the reader. filedata expects a subclass of Ruby <a
-href="../IO.html">IO</a>. filedata.read should return the filecontent as
-string
+href="../IO.html">IO</a>.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000019-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000019-source">
+            onclick="toggleCode('M000020-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000020-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/rcdk/io.rb, line 52</span>
-52:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">read_data</span>(<span class="ruby-identifier">filedata</span>)
-53:         <span class="ruby-keyword kw">begin</span>
-54:           <span class="ruby-ivar">@reader</span> = <span class="ruby-constant">Io</span><span class="ruby-operator">::</span><span class="ruby-constant">Iterator</span><span class="ruby-operator">::</span><span class="ruby-constant">IteratingMDLReader</span>.<span class="ruby-identifier">new</span>(
-55:             <span class="ruby-constant">Java</span><span class="ruby-operator">::</span><span class="ruby-constant">Io</span><span class="ruby-operator">::</span><span class="ruby-constant">StringReader</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">filedata</span>.<span class="ruby-identifier">read</span>),
-56:             <span class="ruby-constant">DefaultChemObjectBuilder</span>.<span class="ruby-identifier">getInstance</span>
-57:           )
-58:           <span class="ruby-keyword kw">true</span>
-59:         <span class="ruby-keyword kw">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
-60:           <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;SDF parsing failed: #{e} #{e.class} #{$!.inspect}&quot;</span>
-61:           <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span>
+    <span class="ruby-comment cmt"># File lib/rcdk/io.rb, line 59</span>
+59:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">read_data</span>(<span class="ruby-identifier">filedata</span>)
+60:         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@file</span>
+61:           <span class="ruby-ivar">@file</span>.<span class="ruby-identifier">close</span>
 62:         <span class="ruby-keyword kw">end</span>
-63:       <span class="ruby-keyword kw">end</span>
+63:         <span class="ruby-ivar">@file</span> = <span class="ruby-identifier">filedata</span>
+64:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
