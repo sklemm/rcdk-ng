@@ -15,10 +15,13 @@ class SDFTest < Test::Unit::TestCase
     
     file = File.new(@@filename, "r")
     fh = IO.new(file.fileno,"r")
-    reader = SdfReader.new(fh)
+    reader = SdfReader.new
+    reader.read_data(fh)
     count = 0
     while reader.has_next?
-      reader.next
+      molfile = reader.next
+      mol = RCDK::Util::Lang.read_molfile(molfile)
+      #smiles = RCDK::Util::Lang.get_smiles(mol)
       count+=1
     end
 

@@ -25,6 +25,7 @@
 
 require 'rcdk'
 require 'rcdk/util'
+require 'tempfile'
 
 jrequire 'java.io.StringReader'
 jrequire 'org.openscience.cdk.io.iterator.IteratingMDLReader'
@@ -49,14 +50,8 @@ module RCDK
 
       # load the data in the reader.
       # filedata expects a subclass of Ruby IO.
-      def initialize(filedata)
-        super()
-        @file = filedata
-      end
-
-      # load the data in the reader.
-      # filedata expects a subclass of Ruby IO.
       def read_data(filedata)
+        puts "reading..."
         if @file
           @file.close
         end
@@ -67,8 +62,8 @@ module RCDK
       def has_next?
         has_next = false
         pos = @file.pos
-        entry = @file.gets("$$$$\n")
-        if entry && entry.match(/M  END/)
+        entry = @file.gets("$$$$")
+        if entry && entry =~ /M  END/
           has_next = true
         end
         @file.pos = pos
@@ -77,7 +72,9 @@ module RCDK
 
       # Returns the next molfile entry.
       def next
-        @file.gets("$$$$\n")
+        entry = @file.gets("$$$$")
+        @file.gets("\n")
+        return entry
       end
 
       # Closes the Reader's resources.
