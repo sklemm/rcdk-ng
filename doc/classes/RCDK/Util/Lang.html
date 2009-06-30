@@ -146,16 +146,16 @@ Returns a String-based molfile by parsing the CDK <tt>molecule</tt>.
             onclick="toggleCode('M000017-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000017-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 66</span>
-66:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_molfile</span>(<span class="ruby-identifier">molecule</span>)
-67:         <span class="ruby-identifier">writer</span> = <span class="ruby-constant">StringWriter</span>.<span class="ruby-identifier">new</span>
-68:         
-69:         <span class="ruby-ivar">@@mdl_writer</span>.<span class="ruby-identifier">setWriter</span>(<span class="ruby-identifier">writer</span>)
-70:         <span class="ruby-ivar">@@mdl_writer</span>.<span class="ruby-identifier">writeMolecule</span>(<span class="ruby-identifier">molecule</span>)
-71:         <span class="ruby-ivar">@@mdl_writer</span>.<span class="ruby-identifier">close</span>
-72:         
-73:         <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">toString</span>
-74:       <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 86</span>
+86:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_molfile</span>(<span class="ruby-identifier">molecule</span>)
+87:         <span class="ruby-identifier">writer</span> = <span class="ruby-constant">StringWriter</span>.<span class="ruby-identifier">new</span>
+88:         
+89:         <span class="ruby-ivar">@@mdl_writer</span>.<span class="ruby-identifier">setWriter</span>(<span class="ruby-identifier">writer</span>)
+90:         <span class="ruby-ivar">@@mdl_writer</span>.<span class="ruby-identifier">writeMolecule</span>(<span class="ruby-identifier">molecule</span>)
+91:         <span class="ruby-ivar">@@mdl_writer</span>.<span class="ruby-identifier">close</span>
+92:         
+93:         <span class="ruby-identifier">writer</span>.<span class="ruby-identifier">toString</span>
+94:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -179,10 +179,10 @@ Returns a SMILES string based on the structure of the indicated CDK
             onclick="toggleCode('M000019-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000019-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 83</span>
-83:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_smiles</span>(<span class="ruby-identifier">molecule</span>)
-84:         <span class="ruby-ivar">@@smiles_generator</span>.<span class="ruby-identifier">createSMILES</span>(<span class="ruby-identifier">molecule</span>)
-85:       <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 103</span>
+103:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_smiles</span>(<span class="ruby-identifier">molecule</span>)
+104:         <span class="ruby-ivar">@@smiles_generator</span>.<span class="ruby-identifier">createSMILES</span>(<span class="ruby-identifier">molecule</span>)
+105:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -205,10 +205,10 @@ Returns a SMILES string by parsing the <tt>molfile</tt> string.
             onclick="toggleCode('M000020-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000020-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 88</span>
-88:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">molfile_to_smiles</span>(<span class="ruby-identifier">molfile</span>)
-89:         <span class="ruby-identifier">get_smiles</span>(<span class="ruby-identifier">read_molfile</span>(<span class="ruby-identifier">molfile</span>))
-90:       <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 108</span>
+108:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">molfile_to_smiles</span>(<span class="ruby-identifier">molfile</span>)
+109:         <span class="ruby-identifier">get_smiles</span>(<span class="ruby-identifier">read_molfile</span>(<span class="ruby-identifier">molfile</span>))
+110:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -232,13 +232,13 @@ Returns a CDK <tt>Molecule</tt> given the String-based molfile
             onclick="toggleCode('M000016-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000016-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 58</span>
-58:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">read_molfile</span>(<span class="ruby-identifier">molfile</span>)
-59:         <span class="ruby-identifier">reader</span> = <span class="ruby-constant">StringReader</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">molfile</span>)
-60:         
-61:         <span class="ruby-ivar">@@mdl_reader</span>.<span class="ruby-identifier">setReader</span>(<span class="ruby-identifier">reader</span>)
-62:         <span class="ruby-ivar">@@mdl_reader</span>.<span class="ruby-identifier">read</span>(<span class="ruby-constant">Molecule</span>.<span class="ruby-identifier">new</span>)
-63:       <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 78</span>
+78:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">read_molfile</span>(<span class="ruby-identifier">molfile</span>)
+79:         <span class="ruby-identifier">reader</span> = <span class="ruby-constant">StringReader</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">molfile</span>)
+80:         
+81:         <span class="ruby-ivar">@@mdl_reader</span>.<span class="ruby-identifier">setReader</span>(<span class="ruby-identifier">reader</span>)
+82:         <span class="ruby-ivar">@@mdl_reader</span>.<span class="ruby-identifier">read</span>(<span class="ruby-constant">Molecule</span>.<span class="ruby-identifier">new</span>)
+83:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -261,10 +261,10 @@ Returns a CDK <tt>Molecule</tt> by parsing <tt>smiles</tt>.
             onclick="toggleCode('M000018-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000018-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 77</span>
-77:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">read_smiles</span>(<span class="ruby-identifier">smiles</span>)
-78:         <span class="ruby-ivar">@@smiles_parser</span>.<span class="ruby-identifier">parseSmiles</span>(<span class="ruby-identifier">smiles</span>)
-79:       <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 97</span>
+97:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">read_smiles</span>(<span class="ruby-identifier">smiles</span>)
+98:         <span class="ruby-ivar">@@smiles_parser</span>.<span class="ruby-identifier">parseSmiles</span>(<span class="ruby-identifier">smiles</span>)
+99:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -287,10 +287,10 @@ Returns a molfiles STRING by parsing <tt>smiles</tt>.
             onclick="toggleCode('M000021-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000021-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 93</span>
-93:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">smiles_to_molfile</span>(<span class="ruby-identifier">smiles</span>)
-94:         <span class="ruby-identifier">get_molfile</span>(<span class="ruby-identifier">read_smiles</span>(<span class="ruby-identifier">smiles</span>))
-95:       <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 113</span>
+113:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">smiles_to_molfile</span>(<span class="ruby-identifier">smiles</span>)
+114:         <span class="ruby-identifier">get_molfile</span>(<span class="ruby-identifier">read_smiles</span>(<span class="ruby-identifier">smiles</span>))
+115:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
