@@ -35,6 +35,7 @@ jrequire 'org.openscience.cdk.DefaultChemObjectBuilder'
 jrequire 'org.openscience.cdk.Molecule'
 jrequire 'org.openscience.cdk.layout.StructureDiagramGenerator'
 jrequire 'org.openscience.cdk.CDKConstants'
+jrequire 'org.openscience.cdk.tools.manipulator.AtomContainerManipulator'
 
 # The Ruby Chemistry Development Kit.
 module RCDK
@@ -50,7 +51,16 @@ module RCDK
       end
 
     end
-    
+
+    class Tools
+      include Org::Openscience::Cdk::Tools::Manipulator
+
+      def self.remove_hydrogens(mol)
+        AtomContainerManipulator.removeHydrogensPreserveMultiplyBonded(mol)
+      end
+      
+    end
+
     # Molecular language translation. Currently molfile, SMILES,
     # and SD files (read-only) are implemented.
     class Lang
