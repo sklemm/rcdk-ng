@@ -56,7 +56,13 @@ JME 2004.10 Thu Jun 01 18:20:16 EDT 2006
   5  6  1  0  0  0  0
 M  END"
   end
-  
+
+  def test_get_title
+    title = Property.get_title(Lang.read_molfile(@benzene))
+    
+    assert_equal("C=1C=CC=CC=1", title)
+  end
+
   def test_read_molfile
     mol = Lang.read_molfile(@benzene)
     

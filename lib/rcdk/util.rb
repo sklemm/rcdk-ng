@@ -34,12 +34,22 @@ jrequire 'org.openscience.cdk.smiles.SmilesGenerator'
 jrequire 'org.openscience.cdk.DefaultChemObjectBuilder'
 jrequire 'org.openscience.cdk.Molecule'
 jrequire 'org.openscience.cdk.layout.StructureDiagramGenerator'
+jrequire 'org.openscience.cdk.CDKConstants'
 
 # The Ruby Chemistry Development Kit.
 module RCDK
   
   # Convenience methods for working with the CDK.
   module Util
+
+    class Property
+      include Org::Openscience::Cdk
+
+      def self.get_title(mol)
+        mol.getProperty(CDKConstants.TITLE).toString
+      end
+
+    end
     
     # Molecular language translation. Currently molfile, SMILES,
     # and SD files (read-only) are implemented.

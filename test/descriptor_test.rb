@@ -10,7 +10,7 @@ class DescriptorTest < Test::Unit::TestCase
   include RCDK::QSAR
 
   def setup
-    @mol = Lang.read_smiles('CN1CCC23C4C1CC5=C2C(=C(C=C5)O)OC3C(C=C4)O')
+    @mol = Lang.read_smiles('CC(=O)OC1=CC=CC=C1(C(=O)O)')
     @descriptor = Descriptor.new
     @descriptor.read_molecule(@mol)
   end
