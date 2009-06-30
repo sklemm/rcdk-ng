@@ -63,6 +63,13 @@ M  END"
     assert_equal("C=1C=CC=CC=1", title)
   end
 
+  def test_remove_hydrogens
+    mol = Tools.remove_hydrogens(
+      Lang.read_smiles("C([H])([H])([H])C([H])([H])C([H])([H])([H])"))
+
+    assert_equal("CCC", Lang.get_smiles(mol))
+  end
+
   def test_read_molfile
     mol = Lang.read_molfile(@benzene)
     
