@@ -139,12 +139,12 @@ Assigns 2-D coordinates to the indicated CDK <tt>molecule</tt>.
             onclick="toggleCode('M000015-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000015-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 112</span>
-112:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">coordinate_molecule</span>(<span class="ruby-identifier">molecule</span>)
-113:         <span class="ruby-ivar">@@sdg</span>.<span class="ruby-identifier">setMolecule</span>(<span class="ruby-identifier">molecule</span>)
-114:         <span class="ruby-ivar">@@sdg</span>.<span class="ruby-identifier">generateCoordinates</span>
-115:         <span class="ruby-ivar">@@sdg</span>.<span class="ruby-identifier">getMolecule</span>
-116:       <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 132</span>
+132:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">coordinate_molecule</span>(<span class="ruby-identifier">molecule</span>)
+133:         <span class="ruby-ivar">@@sdg</span>.<span class="ruby-identifier">setMolecule</span>(<span class="ruby-identifier">molecule</span>)
+134:         <span class="ruby-ivar">@@sdg</span>.<span class="ruby-identifier">generateCoordinates</span>
+135:         <span class="ruby-ivar">@@sdg</span>.<span class="ruby-identifier">getMolecule</span>
+136:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -167,12 +167,12 @@ Assigns 2-D coordinates to the indicated <tt>molfile</tt> string.
             onclick="toggleCode('M000014-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000014-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 105</span>
-105:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">coordinate_molfile</span>(<span class="ruby-identifier">molfile</span>)
-106:         <span class="ruby-identifier">mol</span> = <span class="ruby-identifier">coordinate_molecule</span>(<span class="ruby-constant">Lang</span>.<span class="ruby-identifier">read_molfile</span>(<span class="ruby-identifier">molfile</span>))
-107:         
-108:         <span class="ruby-constant">Lang</span>.<span class="ruby-identifier">get_molfile</span>(<span class="ruby-identifier">mol</span>)
-109:       <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 125</span>
+125:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">coordinate_molfile</span>(<span class="ruby-identifier">molfile</span>)
+126:         <span class="ruby-identifier">mol</span> = <span class="ruby-identifier">coordinate_molecule</span>(<span class="ruby-constant">Lang</span>.<span class="ruby-identifier">read_molfile</span>(<span class="ruby-identifier">molfile</span>))
+127:         
+128:         <span class="ruby-constant">Lang</span>.<span class="ruby-identifier">get_molfile</span>(<span class="ruby-identifier">mol</span>)
+129:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
