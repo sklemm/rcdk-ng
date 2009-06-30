@@ -29,7 +29,6 @@ class RenderTest < Test::Unit::TestCase
   def test_render_temp()
     molecule = Lang.read_smiles(@aspirin)
     file = Tempfile.new('la')
-    puts file.path
     Painter.write_svg(molecule, file.path, 200, 200)
   end
 

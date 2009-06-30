@@ -77,7 +77,6 @@ module RCDK
 
       def xlogp
         desc = XLogPDescriptor.new
-
         desc.calculate(@mol).getValue().doubleValue
       end
             
