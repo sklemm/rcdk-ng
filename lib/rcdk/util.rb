@@ -49,7 +49,7 @@ module RCDK
       def self.get_title(mol)
         title = mol.getProperty(CDKConstants.TITLE)
         if title
-          return title.tab
+          return title.toString
         else
           return "<title not found>"
         end

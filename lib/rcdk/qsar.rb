@@ -25,7 +25,13 @@
 
 require 'rcdk'
 
+jrequire 'java.util.Iterator'
 jrequire 'org.openscience.cdk.tools.manipulator.AtomContainerManipulator'
+jrequire 'org.openscience.cdk.tools.manipulator.AtomTypeManipulator'
+jrequire 'org.openscience.cdk.tools.CDKHydrogenAdder'
+jrequire 'org.openscience.cdk.atomtype.CDKAtomTypeMatcher'
+jrequire 'org.openscience.cdk.aromaticity.CDKHueckelAromaticityDetector'
+jrequire 'org.openscience.cdk.aromaticity.AromaticityCalculator'
 jrequire 'org.openscience.cdk.qsar.descriptors.molecular.WeightDescriptor'
 jrequire 'org.openscience.cdk.qsar.descriptors.molecular.XLogPDescriptor'
 jrequire 'org.openscience.cdk.qsar.descriptors.molecular.HBondDonorCountDescriptor'
@@ -60,12 +66,24 @@ module RCDK
     # </pre>
     class Descriptor
       include Org::Openscience::Cdk
+      include Org::Openscience::Cdk::Tools
       include Org::Openscience::Cdk::Qsar::Descriptors::Molecular
 
       # reads the molecule and saves it as member variable
       def read_molecule(mol)
         @mol = mol
-        Tools::Manipulator::AtomContainerManipulator.convertImplicitToExplicitHydrogens(@mol)
+        matcher = Atomtype::CDKAtomTypeMatcher.getInstance(@mol.getBuilder())
+        atoms = @mol.atoms.iterator
+        while atoms.hasNext()
+          atom = atoms.next()
+          type = matcher.findMatchingAtomType(@mol, atom)
+          Manipulator::AtomTypeManipulator.configure(atom, type)
+        end
+        adder = Org::Openscience::Cdk::Tools::CDKHydrogenAdder.getInstance(@mol.getBuilder())
+        adder.addImplicitHydrogens(@mol)
+        Manipulator::AtomContainerManipulator.convertImplicitToExplicitHydrogens(@mol)
+        Manipulator::AtomContainerManipulator.percieveAtomTypesAndConfigureAtoms(@mol)
+        Aromaticity::CDKHueckelAromaticityDetector.detectAromaticity(@mol)
         @mol
       end
 
