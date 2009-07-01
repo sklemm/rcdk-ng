@@ -38,7 +38,7 @@ class BasicTest < Test::Unit::TestCase
   
   def setup
     @benzene =
-"C=1C=CC=CC=1
+      "C=1C=CC=CC=1
 JME 2004.10 Thu Jun 01 18:20:16 EDT 2006
 
   6  6  0  0  0  0  0  0  0  0999 V2000
@@ -142,6 +142,24 @@ M  END"
     Image.smiles_to_jpg('Clc1ccccc1', 'output/chlorobenzene.jpg', 200, 200)
     Image.smiles_to_jpg('CC(=O)OC1=CC=CC=C1C(=O)O', 'output/aspirin.jpg', 200, 200)
   end
+
+  def test_consistency
+    mol = Lang.read_smiles('C=1C=CC=CC=1')
+    smiles = Lang.get_smiles(mol)
+
+    assert_equal('C=1C=CC=CC=1', smiles)
+
+    mol = Lang.read_molfile(@benzene)
+    molfile = Lang.get_molfile(mol)
+    smiles1 = Lang.molfile_to_smiles(@benzene)
+    smiles2 = Lang.molfile_to_smiles(molfile)
+    smiles3 = Lang.get_smiles(mol)
+
+    assert_equal(smiles1, smiles2)
+    assert_equal(smiles1, smiles3)
+    assert_equal(smiles2, smiles3)
+  end
+
 
 end
 

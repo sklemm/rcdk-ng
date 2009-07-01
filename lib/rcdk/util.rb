@@ -47,7 +47,12 @@ module RCDK
       include Org::Openscience::Cdk
 
       def self.get_title(mol)
-        mol.getProperty(CDKConstants.TITLE).toString
+        title = mol.getProperty(CDKConstants.TITLE)
+        if title
+          return title.tab
+        else
+          return "<title not found>"
+        end
       end
 
     end
