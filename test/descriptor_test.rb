@@ -5,6 +5,10 @@ require 'rcdk'
 require 'rcdk/util'
 require 'rcdk/qsar'
 
+jrequire 'org.openscience.cdk.io.CMLWriter'
+jrequire 'java.io.FileWriter'
+jrequire 'java.io.StringWriter'
+
 class DescriptorTest < Test::Unit::TestCase
   include RCDK::Util
   include RCDK::QSAR

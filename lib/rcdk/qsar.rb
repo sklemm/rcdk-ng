@@ -70,6 +70,7 @@ module RCDK
       include Org::Openscience::Cdk::Qsar::Descriptors::Molecular
 
       # reads the molecule and saves it as member variable
+      # makes some sanitazing, as aromaticity and explicit hydrogens
       def read_molecule(mol)
         @mol = mol
         matcher = Atomtype::CDKAtomTypeMatcher.getInstance(@mol.getBuilder())
@@ -87,7 +88,7 @@ module RCDK
         @mol
       end
 
-      # returns the molecular weight of the molecule as
+      # returns the molecular weight of the molecule as double
       def mw
         desc = WeightDescriptor.new
         desc.calculate(@mol).getValue().doubleValue
