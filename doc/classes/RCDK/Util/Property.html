@@ -131,8 +131,13 @@
 <pre>
     <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 49</span>
 49:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">get_title</span>(<span class="ruby-identifier">mol</span>)
-50:         <span class="ruby-identifier">mol</span>.<span class="ruby-identifier">getProperty</span>(<span class="ruby-constant">CDKConstants</span>.<span class="ruby-constant">TITLE</span>).<span class="ruby-identifier">toString</span>
-51:       <span class="ruby-keyword kw">end</span>
+50:         <span class="ruby-identifier">title</span> = <span class="ruby-identifier">mol</span>.<span class="ruby-identifier">getProperty</span>(<span class="ruby-constant">CDKConstants</span>.<span class="ruby-constant">TITLE</span>)
+51:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">title</span>
+52:           <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">title</span>.<span class="ruby-identifier">toString</span>
+53:         <span class="ruby-keyword kw">else</span>
+54:           <span class="ruby-keyword kw">return</span> <span class="ruby-value str">&quot;&lt;title not found&gt;&quot;</span>
+55:         <span class="ruby-keyword kw">end</span>
+56:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>

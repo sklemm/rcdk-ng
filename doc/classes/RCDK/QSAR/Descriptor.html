@@ -148,6 +148,7 @@ descriptor.mw <a href="Descriptor.html#M000011">tpsa</a> = descriptor.tpsa
 
       <div id="includes-list">
         <span class="include-name">Org::Openscience::Cdk</span>
+        <span class="include-name">Org::Openscience::Cdk::Tools</span>
         <span class="include-name">Org::Openscience::Cdk::Qsar::Descriptors::Molecular</span>
       </div>
     </div>
@@ -179,10 +180,10 @@ descriptor.mw <a href="Descriptor.html#M000011">tpsa</a> = descriptor.tpsa
             onclick="toggleCode('M000012-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000012-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/rcdk/qsar.rb, line 103</span>
-103:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">formal_charge</span>
-104:         <span class="ruby-constant">Tools</span><span class="ruby-operator">::</span><span class="ruby-constant">Manipulator</span><span class="ruby-operator">::</span><span class="ruby-constant">AtomContainerManipulator</span>.<span class="ruby-identifier">getTotalFormalCharge</span>(<span class="ruby-ivar">@mol</span>)
-105:       <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/rcdk/qsar.rb, line 122</span>
+122:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">formal_charge</span>
+123:         <span class="ruby-constant">Tools</span><span class="ruby-operator">::</span><span class="ruby-constant">Manipulator</span><span class="ruby-operator">::</span><span class="ruby-constant">AtomContainerManipulator</span>.<span class="ruby-identifier">getTotalFormalCharge</span>(<span class="ruby-ivar">@mol</span>)
+124:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -202,11 +203,11 @@ descriptor.mw <a href="Descriptor.html#M000011">tpsa</a> = descriptor.tpsa
             onclick="toggleCode('M000009-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000009-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/rcdk/qsar.rb, line 88</span>
-88:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">hba</span>
-89:         <span class="ruby-identifier">desc</span> = <span class="ruby-constant">HBondAcceptorCountDescriptor</span>.<span class="ruby-identifier">new</span>
-90:         <span class="ruby-identifier">desc</span>.<span class="ruby-identifier">calculate</span>(<span class="ruby-ivar">@mol</span>).<span class="ruby-identifier">getValue</span>().<span class="ruby-identifier">intValue</span>
-91:       <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/rcdk/qsar.rb, line 107</span>
+107:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">hba</span>
+108:         <span class="ruby-identifier">desc</span> = <span class="ruby-constant">HBondAcceptorCountDescriptor</span>.<span class="ruby-identifier">new</span>
+109:         <span class="ruby-identifier">desc</span>.<span class="ruby-identifier">calculate</span>(<span class="ruby-ivar">@mol</span>).<span class="ruby-identifier">getValue</span>().<span class="ruby-identifier">intValue</span>
+110:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -226,11 +227,11 @@ descriptor.mw <a href="Descriptor.html#M000011">tpsa</a> = descriptor.tpsa
             onclick="toggleCode('M000008-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000008-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/rcdk/qsar.rb, line 83</span>
-83:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">hbd</span>
-84:         <span class="ruby-identifier">desc</span> = <span class="ruby-constant">HBondDonorCountDescriptor</span>.<span class="ruby-identifier">new</span>
-85:         <span class="ruby-identifier">desc</span>.<span class="ruby-identifier">calculate</span>(<span class="ruby-ivar">@mol</span>).<span class="ruby-identifier">getValue</span>().<span class="ruby-identifier">intValue</span>
-86:       <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/rcdk/qsar.rb, line 102</span>
+102:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">hbd</span>
+103:         <span class="ruby-identifier">desc</span> = <span class="ruby-constant">HBondDonorCountDescriptor</span>.<span class="ruby-identifier">new</span>
+104:         <span class="ruby-identifier">desc</span>.<span class="ruby-identifier">calculate</span>(<span class="ruby-ivar">@mol</span>).<span class="ruby-identifier">getValue</span>().<span class="ruby-identifier">intValue</span>
+105:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -247,17 +248,17 @@ descriptor.mw <a href="Descriptor.html#M000011">tpsa</a> = descriptor.tpsa
       
         <div class="method-description">
           <p>
-returns the molecular weight of the molecule as
+returns the molecular weight of the molecule as double
 </p>
           <p><a class="source-toggle" href="#"
             onclick="toggleCode('M000006-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000006-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/rcdk/qsar.rb, line 73</span>
-73:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">mw</span>
-74:         <span class="ruby-identifier">desc</span> = <span class="ruby-constant">WeightDescriptor</span>.<span class="ruby-identifier">new</span>
-75:         <span class="ruby-identifier">desc</span>.<span class="ruby-identifier">calculate</span>(<span class="ruby-ivar">@mol</span>).<span class="ruby-identifier">getValue</span>().<span class="ruby-identifier">doubleValue</span>
-76:       <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File lib/rcdk/qsar.rb, line 92</span>
+92:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">mw</span>
+93:         <span class="ruby-identifier">desc</span> = <span class="ruby-constant">WeightDescriptor</span>.<span class="ruby-identifier">new</span>
+94:         <span class="ruby-identifier">desc</span>.<span class="ruby-identifier">calculate</span>(<span class="ruby-ivar">@mol</span>).<span class="ruby-identifier">getValue</span>().<span class="ruby-identifier">doubleValue</span>
+95:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -277,11 +278,11 @@ returns the molecular weight of the molecule as
             onclick="toggleCode('M000013-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000013-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/rcdk/qsar.rb, line 107</span>
-107:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">n_rings</span>
-108:         <span class="ruby-identifier">finder</span> = <span class="ruby-constant">Ringsearch</span><span class="ruby-operator">::</span><span class="ruby-constant">AllRingsFinder</span>.<span class="ruby-identifier">new</span>
-109:         <span class="ruby-identifier">finder</span>.<span class="ruby-identifier">findAllRings</span>(<span class="ruby-ivar">@mol</span>).<span class="ruby-identifier">getAtomContainerCount</span>
-110:       <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/rcdk/qsar.rb, line 126</span>
+126:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">n_rings</span>
+127:         <span class="ruby-identifier">finder</span> = <span class="ruby-constant">Ringsearch</span><span class="ruby-operator">::</span><span class="ruby-constant">AllRingsFinder</span>.<span class="ruby-identifier">new</span>
+128:         <span class="ruby-identifier">finder</span>.<span class="ruby-identifier">findAllRings</span>(<span class="ruby-ivar">@mol</span>).<span class="ruby-identifier">getAtomContainerCount</span>
+129:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -301,11 +302,11 @@ returns the molecular weight of the molecule as
             onclick="toggleCode('M000010-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000010-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/rcdk/qsar.rb, line 93</span>
-93:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">nrb</span>
-94:         <span class="ruby-identifier">desc</span> = <span class="ruby-constant">RotatableBondsCountDescriptor</span>.<span class="ruby-identifier">new</span>
-95:         <span class="ruby-identifier">desc</span>.<span class="ruby-identifier">calculate</span>(<span class="ruby-ivar">@mol</span>).<span class="ruby-identifier">getValue</span>().<span class="ruby-identifier">intValue</span>
-96:       <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/rcdk/qsar.rb, line 112</span>
+112:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">nrb</span>
+113:         <span class="ruby-identifier">desc</span> = <span class="ruby-constant">RotatableBondsCountDescriptor</span>.<span class="ruby-identifier">new</span>
+114:         <span class="ruby-identifier">desc</span>.<span class="ruby-identifier">calculate</span>(<span class="ruby-ivar">@mol</span>).<span class="ruby-identifier">getValue</span>().<span class="ruby-identifier">intValue</span>
+115:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -322,18 +323,30 @@ returns the molecular weight of the molecule as
       
         <div class="method-description">
           <p>
-reads the molecule and saves it as member variable
+reads the molecule and saves it as member variable makes some sanitazing,
+as aromaticity and explicit hydrogens
 </p>
           <p><a class="source-toggle" href="#"
             onclick="toggleCode('M000005-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000005-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/rcdk/qsar.rb, line 66</span>
-66:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">read_molecule</span>(<span class="ruby-identifier">mol</span>)
-67:         <span class="ruby-ivar">@mol</span> = <span class="ruby-identifier">mol</span>
-68:         <span class="ruby-constant">Tools</span><span class="ruby-operator">::</span><span class="ruby-constant">Manipulator</span><span class="ruby-operator">::</span><span class="ruby-constant">AtomContainerManipulator</span>.<span class="ruby-identifier">convertImplicitToExplicitHydrogens</span>(<span class="ruby-ivar">@mol</span>)
-69:         <span class="ruby-ivar">@mol</span>
-70:       <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File lib/rcdk/qsar.rb, line 74</span>
+74:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">read_molecule</span>(<span class="ruby-identifier">mol</span>)
+75:         <span class="ruby-ivar">@mol</span> = <span class="ruby-identifier">mol</span>
+76:         <span class="ruby-identifier">matcher</span> = <span class="ruby-constant">Atomtype</span><span class="ruby-operator">::</span><span class="ruby-constant">CDKAtomTypeMatcher</span>.<span class="ruby-identifier">getInstance</span>(<span class="ruby-ivar">@mol</span>.<span class="ruby-identifier">getBuilder</span>())
+77:         <span class="ruby-identifier">atoms</span> = <span class="ruby-ivar">@mol</span>.<span class="ruby-identifier">atoms</span>.<span class="ruby-identifier">iterator</span>
+78:         <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">atoms</span>.<span class="ruby-identifier">hasNext</span>()
+79:           <span class="ruby-identifier">atom</span> = <span class="ruby-identifier">atoms</span>.<span class="ruby-identifier">next</span>()
+80:           <span class="ruby-identifier">type</span> = <span class="ruby-identifier">matcher</span>.<span class="ruby-identifier">findMatchingAtomType</span>(<span class="ruby-ivar">@mol</span>, <span class="ruby-identifier">atom</span>)
+81:           <span class="ruby-constant">Manipulator</span><span class="ruby-operator">::</span><span class="ruby-constant">AtomTypeManipulator</span>.<span class="ruby-identifier">configure</span>(<span class="ruby-identifier">atom</span>, <span class="ruby-identifier">type</span>)
+82:         <span class="ruby-keyword kw">end</span>
+83:         <span class="ruby-identifier">adder</span> = <span class="ruby-constant">Org</span><span class="ruby-operator">::</span><span class="ruby-constant">Openscience</span><span class="ruby-operator">::</span><span class="ruby-constant">Cdk</span><span class="ruby-operator">::</span><span class="ruby-constant">Tools</span><span class="ruby-operator">::</span><span class="ruby-constant">CDKHydrogenAdder</span>.<span class="ruby-identifier">getInstance</span>(<span class="ruby-ivar">@mol</span>.<span class="ruby-identifier">getBuilder</span>())
+84:         <span class="ruby-identifier">adder</span>.<span class="ruby-identifier">addImplicitHydrogens</span>(<span class="ruby-ivar">@mol</span>)
+85:         <span class="ruby-constant">Manipulator</span><span class="ruby-operator">::</span><span class="ruby-constant">AtomContainerManipulator</span>.<span class="ruby-identifier">convertImplicitToExplicitHydrogens</span>(<span class="ruby-ivar">@mol</span>)
+86:         <span class="ruby-constant">Manipulator</span><span class="ruby-operator">::</span><span class="ruby-constant">AtomContainerManipulator</span>.<span class="ruby-identifier">percieveAtomTypesAndConfigureAtoms</span>(<span class="ruby-ivar">@mol</span>)
+87:         <span class="ruby-constant">Aromaticity</span><span class="ruby-operator">::</span><span class="ruby-constant">CDKHueckelAromaticityDetector</span>.<span class="ruby-identifier">detectAromaticity</span>(<span class="ruby-ivar">@mol</span>)
+88:         <span class="ruby-ivar">@mol</span>
+89:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -353,11 +366,11 @@ reads the molecule and saves it as member variable
             onclick="toggleCode('M000011-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000011-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/rcdk/qsar.rb, line 98</span>
- 98:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tpsa</span>
- 99:         <span class="ruby-identifier">desc</span> = <span class="ruby-constant">TPSADescriptor</span>.<span class="ruby-identifier">new</span>
-100:         <span class="ruby-identifier">desc</span>.<span class="ruby-identifier">calculate</span>(<span class="ruby-ivar">@mol</span>).<span class="ruby-identifier">getValue</span>().<span class="ruby-identifier">doubleValue</span>
-101:       <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/rcdk/qsar.rb, line 117</span>
+117:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tpsa</span>
+118:         <span class="ruby-identifier">desc</span> = <span class="ruby-constant">TPSADescriptor</span>.<span class="ruby-identifier">new</span>
+119:         <span class="ruby-identifier">desc</span>.<span class="ruby-identifier">calculate</span>(<span class="ruby-ivar">@mol</span>).<span class="ruby-identifier">getValue</span>().<span class="ruby-identifier">doubleValue</span>
+120:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -377,11 +390,11 @@ reads the molecule and saves it as member variable
             onclick="toggleCode('M000007-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000007-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/rcdk/qsar.rb, line 78</span>
-78:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">xlogp</span>
-79:         <span class="ruby-identifier">desc</span> = <span class="ruby-constant">XLogPDescriptor</span>.<span class="ruby-identifier">new</span>
-80:         <span class="ruby-identifier">desc</span>.<span class="ruby-identifier">calculate</span>(<span class="ruby-ivar">@mol</span>).<span class="ruby-identifier">getValue</span>().<span class="ruby-identifier">doubleValue</span>
-81:       <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/rcdk/qsar.rb, line 97</span>
+ 97:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">xlogp</span>
+ 98:         <span class="ruby-identifier">desc</span> = <span class="ruby-constant">XLogPDescriptor</span>.<span class="ruby-identifier">new</span>
+ 99:         <span class="ruby-identifier">desc</span>.<span class="ruby-identifier">calculate</span>(<span class="ruby-ivar">@mol</span>).<span class="ruby-identifier">getValue</span>().<span class="ruby-identifier">doubleValue</span>
+100:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
