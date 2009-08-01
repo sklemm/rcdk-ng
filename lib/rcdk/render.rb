@@ -40,7 +40,7 @@ jrequire 'org.apache.batik.dom.GenericDOMImplementation'
 jrequire 'org.apache.batik.svggen.SVGGraphics2D'
 
 jrequire 'org.openscience.cdk.layout.StructureDiagramGenerator'
-jrequire 'org.openscience.cdk.renderer.Renderer'
+jrequire 'org.openscience.cdk.renderer.AtomContainerRenderer'
 jrequire 'org.openscience.cdk.renderer.RendererModel'
 jrequire 'org.openscience.cdk.renderer.generators.BasicBondGenerator'
 jrequire 'org.openscience.cdk.renderer.generators.BasicAtomGenerator'
@@ -128,7 +128,7 @@ module RCDK
         generators.add(Generators::BasicBondGenerator.new)
         generators.add(Generators::BasicAtomGenerator.new)
         font = Font::AWTFontManager.new
-        renderer = Renderer.new(generators, font)
+        renderer = AtomContainerRenderer.new(generators, font)
         renderer.setup(mol,area)
         model = renderer.getRenderer2DModel
         model.setAtomColorer Color::CPKAtomColors.new
@@ -143,7 +143,7 @@ module RCDK
           model.setBondWidth 1
         end
 
-        renderer.paintMolecule( mol, visitor )
+        renderer.paint( mol, visitor )
       end
 
     end

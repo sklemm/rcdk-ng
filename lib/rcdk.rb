@@ -22,7 +22,7 @@
 # Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor
 # Boston, MA 02111-1301, USA.
 
-CDK_VERSION = '1.2.x-alpha'
+CDK_VERSION = '1.2.3-with-jcpprim'
 BATIK_VERSION = '1.7'
 
 require 'rcdk/java'
