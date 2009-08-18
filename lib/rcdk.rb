@@ -30,7 +30,7 @@ require 'rcdk/java'
 libpath = "../java/lib"
 
 classpath = ENV['CLASSPATH'] ||= ''
-classpath += File.join(File.dirname(__FILE__), libpath, 'cdk-' + CDK_VERSION + '.jar')
+classpath += File::PATH_SEPARATOR + File.join(File.dirname(__FILE__), libpath, 'cdk-' + CDK_VERSION + '.jar')
 classpath += File::PATH_SEPARATOR + File.join(File.dirname(__FILE__), libpath, 'batik-' + BATIK_VERSION + '.jar')
 
 load_jvm(classpath)
