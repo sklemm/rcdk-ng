@@ -25,12 +25,12 @@
 CDK_VERSION = '1.2.3-with-jcpprim'
 BATIK_VERSION = '1.7'
 
-require 'rcdk/java'
+require 'jrequire'
 
-libpath = "../java/lib"
+libpath = File.dirname(__FILE__) + "/../java/lib"
 
 classpath = ENV['CLASSPATH'] ||= ''
-classpath += File::PATH_SEPARATOR + File.join(File.dirname(__FILE__), libpath, 'cdk-' + CDK_VERSION + '.jar')
-classpath += File::PATH_SEPARATOR + File.join(File.dirname(__FILE__), libpath, 'batik-' + BATIK_VERSION + '.jar')
+classpath += File::PATH_SEPARATOR + File.join(libpath, 'cdk-' + CDK_VERSION + '.jar')
+classpath += File::PATH_SEPARATOR + File.join(libpath, 'batik-' + BATIK_VERSION + '.jar')
 
-load_jvm(classpath)
+load_jvm(classpath, ['-Xms128m', '-Xmx1024m'])
