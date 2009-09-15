@@ -87,6 +87,7 @@
 
       <div class="name-list">
       <a href="#M000029">get_title</a>&nbsp;&nbsp;
+      <a href="#M000030">set_title</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -138,6 +139,30 @@
 54:           <span class="ruby-keyword kw">return</span> <span class="ruby-value str">&quot;&lt;title not found&gt;&quot;</span>
 55:         <span class="ruby-keyword kw">end</span>
 56:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000030" class="method-detail">
+        <a name="M000030"></a>
+
+        <div class="method-heading">
+          <a href="#M000030" class="method-signature">
+          <span class="method-name">set_title</span><span class="method-args">(mol, title)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000030-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000030-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/rcdk/util.rb, line 58</span>
+58:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">set_title</span>(<span class="ruby-identifier">mol</span>, <span class="ruby-identifier">title</span>)
+59:         <span class="ruby-identifier">mol</span>.<span class="ruby-identifier">setProperty</span>(<span class="ruby-constant">CDKConstants</span>.<span class="ruby-constant">TITLE</span>, <span class="ruby-identifier">title</span>)
+60:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">mol</span>
+61:       <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>

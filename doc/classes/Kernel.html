@@ -55,8 +55,8 @@
         <tr class="top-aligned-row">
             <td><strong>In:</strong></td>
             <td>
-                <a href="../files/lib/rcdk/java_rb.html">
-                lib/rcdk/java.rb
+                <a href="../files/lib/jrequire_rb.html">
+                lib/jrequire.rb
                 </a>
         <br />
             </td>
@@ -80,7 +80,7 @@
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000034">jrequire</a>&nbsp;&nbsp;
+      <a href="#M000035">jrequire</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -102,11 +102,11 @@
     <div id="methods">
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000034" class="method-detail">
-        <a name="M000034"></a>
+      <div id="method-M000035" class="method-detail">
+        <a name="M000035"></a>
 
         <div class="method-heading">
-          <a href="#M000034" class="method-signature">
+          <a href="#M000035" class="method-signature">
           <span class="method-name">jrequire</span><span class="method-args">(qualified_class_name)</span>
           </a>
         </div>
@@ -119,14 +119,14 @@ capitalized. For example, <tt>java.util.HashMap</tt> would become <tt>
 Java::Util::HashMap</tt>.
 </p>
 <p>
-The first use of <tt><a href="Kernel.html#M000034">jrequire</a></tt> will
+The first use of <tt><a href="Kernel.html#M000035">jrequire</a></tt> will
 render all subsequent calls to <tt>require_jar</tt> ineffective.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000034-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000034-source">
+            onclick="toggleCode('M000035-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000035-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/rcdk/java.rb, line 44</span>
+    <span class="ruby-comment cmt"># File lib/jrequire.rb, line 44</span>
 44:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">jrequire</span>(<span class="ruby-identifier">qualified_class_name</span>)
 45:     <span class="ruby-identifier">java_class</span> = <span class="ruby-constant">Rjb</span><span class="ruby-operator">::</span><span class="ruby-identifier">import</span>(<span class="ruby-identifier">qualified_class_name</span>)
 46:     <span class="ruby-identifier">package_names</span> = <span class="ruby-identifier">qualified_class_name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">'.'</span>)
