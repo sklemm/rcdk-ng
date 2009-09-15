@@ -63,6 +63,14 @@ M  END"
     assert_equal("C=1C=CC=CC=1", title)
   end
 
+  def test_set_title
+    mol = Lang.read_molfile(@benzene)
+    Property.set_title(mol, "benzene")
+    title = Property.get_title(mol)
+
+    assert_equal("benzene", title)
+  end
+
   def test_remove_hydrogens
     mol = Tools.remove_hydrogens(
       Lang.read_smiles("C([H])([H])([H])C([H])([H])C([H])([H])([H])"))

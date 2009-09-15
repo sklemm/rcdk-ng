@@ -55,6 +55,11 @@ module RCDK
         end
       end
 
+      def self.set_title(mol, title)
+        mol.setProperty(CDKConstants.TITLE, title)
+        return mol
+      end
+
     end
 
     class Tools
