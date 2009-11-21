@@ -9,6 +9,8 @@ jrequire 'org.openscience.cdk.CDKConstants'
 class SDFTest < Test::Unit::TestCase
   include RCDK::IO
 
+  # please load the first 25000 compounds from pubchem
+  # or add your own set here
   @@filename = 'test/Compound_00000001_00025000.sdf'
 
   def test_read_sdfile
